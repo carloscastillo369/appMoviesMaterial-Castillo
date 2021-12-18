@@ -1,1 +1,9 @@
-<p>modal-trailer works!</p>
+<div class="modal">
+    <h1 >{{movieTitle}}</h1>
+    <div mat-dialog-content class="body-trailer">
+        <iframe [src]="urlTrailer" style="width: 360px; height: 270px;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+    </div>
+</div>

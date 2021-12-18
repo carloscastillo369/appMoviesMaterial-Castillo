@@ -19,10 +19,6 @@ export class ApiMoviesService {
     return this.http.get<MovieModel[]>(this.urlAPI + 'movies');
   }
 
-  getInfoMovie(id:number): Observable<MovieModel>{
-    return this.http.get<MovieModel>(this.urlAPI + 'movies/' + id);
-  }
-
   //getMovies(){
   //  return this.movies;
   //}

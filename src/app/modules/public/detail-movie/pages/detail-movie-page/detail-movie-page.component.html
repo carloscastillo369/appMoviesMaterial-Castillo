@@ -1,1 +1,51 @@
-<p>detail-movie-page works!</p>
+<div class="detail-movie-container">
+    <mat-card>
+        <img src={{movie.bannerimg}} class="image-banner">
+        <div class="card-content">
+            <div class="image-poster-container">
+                <img mat-card-image src={{movie.posterimg}} class="image-poster"> 
+            </div>
+            <div class="card-body">
+                <mat-card-title>{{movie.title}}</mat-card-title>
+                <mat-card-subtitle>
+                    <div class="principal-info-movie">
+                        <p>Genero: {{movie.genre}} &nbsp;&nbsp; Lanzamiento: {{movie.released}} </p>
+                        <p>Clasificación: {{movie.rated}} &nbsp;&nbsp; Duración: {{movie.runtime}} min</p>
+                    </div>
+    
+                    <hr>
+                            
+                    <mat-card-content>
+                        <h2>Sinopsis</h2>
+                        <p>{{movie.plot}}</p>
+                        <p></p>
+                        
+                        <hr *ngIf="movie.noavailable">
+                        
+                        <h3 *ngIf="movie.noavailable" class="no-available">Agotado</h3>
+                    </mat-card-content>
+                </mat-card-subtitle>
+            </div>
+        </div>
+    </mat-card>
+
+    <app-buttons-function [movie]="movie"></app-buttons-function>
+
+    <div class="extra-detail">
+        <p class="fw-bold">Director: 
+            <span class="fst-italic">{{movie.director}}</span> 
+        </p>
+        <p class="fw-bold">Actores: 
+            <span class="fst-italic">{{movie.actors}}</span>
+        </p>
+        <p class="fw-bold">Idioma: 
+            <span class="fst-italic">{{movie.language}}</span>
+        </p>
+        <p class="fw-bold">País: 
+            <span class="fst-italic"> {{movie.country}}</span>
+        </p>
+        <p class="fw-bold">Premios: 
+            <span class="fst-italic">{{movie.awards}}</span>
+        </p>   
+    </div>
+</div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MovieModel } from '../../../core/models/movie.model';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-modal-trailer',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalTrailerComponent implements OnInit {
 
-  constructor() { }
+  movieTitle: string;
+  urlTrailer: SafeResourceUrl;
+
+  constructor( private sanitizer: DomSanitizer, @Inject(MAT_DIALOG_DATA) public data: MovieModel ) { 
+    this.movieTitle = this.data.title;
+    this.urlTrailer = this.sanitizer.bypassSecurityTrustResourceUrl(this.data.urltrailer);
+  }
 
   ngOnInit(): void {
   }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ListMoviesRoutingModule } from './list-movies-routing.module';
 import { ListMoviesPageComponent } from './pages/list-movies-page/list-movies-page.component';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
