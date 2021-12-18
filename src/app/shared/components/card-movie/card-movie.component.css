@@ -1,0 +1,84 @@
+mat-card {
+    width: 360px;
+    height: 219px;
+    padding: 0px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    background-color: transparent;
+    display: flex;
+    align-items: flex-end;
+}
+
+.detail-movie:hover {
+    box-shadow: 0px 0px 10px 2px #fff;
+    cursor: pointer;
+}
+
+mat-card-header {
+    position: relative;
+    z-index: 100;
+}
+
+mat-card-title, mat-card-subtitle {
+    color: #fff;
+}
+
+img {
+    width: 360px;
+    height: 219px;
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    opacity: 50%;
+}
+
+
+.options {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.compra-option {
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    background-color: #0d6efd;
+    text-align: center;
+    border-radius: 3px;
+    margin-right: 2px;
+}
+
+.renta-option {
+    width: 60px;
+    height: 30px;
+    color: #fff;
+    background-color: #6c757d;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.no-available {
+    width: 100px;
+    height: 30px;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.commingsoon {
+    width: 150px;
+    height: 30px;
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+    text-align: center;
+    border-radius: 3px;
+}

@@ -1,1 +1,35 @@
-<p>card-movie works!</p>
+<mat-card *ngIf="!movie.commingsoon" [routerLink]="['/HomeMovie/detailmovie', movie.id, movie.title]" class="detail-movie">
+    <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+        <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+        <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{movie.cardimg}}>
+    <div *ngIf="!movie.noavailable" class="options">
+        <div *ngIf="movie.canbesold" class="compra-option">
+            <p>Compra</p>
+        </div>
+        <div *ngIf="movie.canberent" class="renta-option">
+            <p>Renta</p>
+        </div>
+    </div>
+    <div *ngIf="movie.noavailable" class="options">
+        <div class="no-available">
+            <p class="fw-bold">Agotado</p>
+        </div>
+    </div>
+</mat-card>
+
+<mat-card *ngIf="movie.commingsoon">
+    <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+        <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+        <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{movie.cardimg}}>
+    <div class="options">
+        <div class="commingsoon">
+            <p class="fw-bold">Proximamente</p>
+        </div>
+    </div>
+</mat-card>

@@ -16,12 +16,12 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'/HomeMovie',
+    redirectTo:'/HomeMovie/movies',
     pathMatch: 'full'
   },
   {
     path: '**',//TODO 404 cuando no existe la ruta
-    redirectTo: '/HomeMovie'
+    redirectTo: '/HomeMovie/movies'
   }
 ];
 

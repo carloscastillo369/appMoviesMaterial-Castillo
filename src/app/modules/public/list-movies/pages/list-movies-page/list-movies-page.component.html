@@ -1,1 +1,7 @@
-<p>list-movies-page works!</p>
+<div class="list-cards-movies">
+    <app-card-movie
+        *ngFor="let movie of movies"
+        [movie]="movie"
+    >
+    </app-card-movie>
+</div>

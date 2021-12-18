@@ -1,0 +1,12 @@
+.main {
+    max-width: 2400px;
+    margin: 0 auto;
+    background-color: #181818;
+}
+
+.page-content {
+    max-width: 1540px;
+    min-height: calc(100vh - 164px) ;
+    margin: 0 auto;
+    padding-top: 64px;
+}

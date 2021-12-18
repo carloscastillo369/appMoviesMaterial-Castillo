@@ -1,1 +1,17 @@
-<p>navbar works!</p>
+<mat-toolbar>
+    <a class="logo-container" routerLink="/HomeMovie/movies">
+        <img class="logo-image" src="../../../assets/images/logo/Logo-White.png" alt="">
+        <p class="logo-name">HomeMovie</p>
+    </a>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/HomeMovie/movies">
+        Movies
+    </button>
+    <app-cart-widget></app-cart-widget>
+    <button mat-button routerLink="/HomeMovie/signin">
+        Sign In
+    </button>
+    <button mat-button routerLink="/HomeMovie/signup">
+        Sign up
+    </button>
+</mat-toolbar>
