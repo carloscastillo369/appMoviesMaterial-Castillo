@@ -3,10 +3,10 @@
     <button mat-raised-button class="btn-trailer" (click)="openDialog(movie)"> 
         <i class="bi bi-youtube"> Ver trailer</i> 
     </button>
-    <button mat-raised-button color="primary" *ngIf="movie.canbesold" (click)="addMovie(movie, movie.saleprice, 'compra')">
+    <button mat-raised-button color="primary" *ngIf="movie.canbesold == 'true'" (click)="addMovie(movie, movie.saleprice, 'compra')">
         ${{movie.saleprice}} Compra 
     </button>
-    <button mat-raised-button color="accent" *ngIf="movie.canberent" (click)="addMovie(movie, movie.rentalprice, 'renta')">
+    <button mat-raised-button color="accent" *ngIf="movie.canberent == 'true'" (click)="addMovie(movie, movie.rentalprice, 'renta')">
         ${{movie.rentalprice}} Renta 48Hs
     </button>
     <button mat-raised-button routerLink="/movies">

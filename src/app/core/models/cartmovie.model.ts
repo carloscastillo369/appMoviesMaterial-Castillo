@@ -1,7 +1,7 @@
 export class CartMovieModel {
     
     constructor(
-        public id: number,
+        public id: string,
         public title: string,
         public image: string,
         public year: number,

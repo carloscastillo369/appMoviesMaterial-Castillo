@@ -1,7 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'movies',
+    loadChildren: () => import('../movies/movies.module').then(m => m.MoviesModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path:'',
+    redirectTo:'/admin/movies',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',//TODO 404 cuando no existe la ruta
+    redirectTo: '/admin/movies'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

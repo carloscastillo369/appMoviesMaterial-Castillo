@@ -16,6 +16,14 @@ hr {
     opacity: 25%;
 }
 
+.spinner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .detail-movie-container {
     padding: 20px;
     display: flex;

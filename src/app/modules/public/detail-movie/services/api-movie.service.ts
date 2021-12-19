@@ -12,7 +12,7 @@ export class ApiMovieService {
 
   constructor(private http: HttpClient) { }
 
-  getMovie(id:number): Observable<MovieModel>{
+  getMovie(id:string): Observable<MovieModel>{
     return this.http.get<MovieModel>(this.urlAPI + 'movies/' + id);
   }
 

@@ -1,0 +1,130 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { MovieModel } from 'src/app/core/models/movie.model';
+import { MoviesService } from '../../services/movies.service';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-update-movie',
+  templateUrl: './update-movie.component.html',
+  styleUrls: ['./update-movie.component.css']
+})
+export class UpdateMovieComponent implements OnInit {
+
+  movie!:MovieModel
+
+  constructor(
+    private moviesService: MoviesService, 
+    private fb:FormBuilder,
+    private activatedRoute: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      this.moviesService.getMovie(params.id).subscribe((res: MovieModel) => {
+        this.movie = res;
+
+        this.formUpdateMovie = this.fb.group({
+          id: [this.movie.id],
+          title: [this.movie.title],
+          year: [this.movie.year],
+          saleprice: [this.movie.saleprice],
+          rentalprice: [this.movie.rentalprice],
+          canberent: [this.movie.canberent],
+          canbesold: [this.movie.canbesold],
+          commingsoon: [this.movie.commingsoon],
+          noavailable: [this.movie.noavailable],
+          rated: [this.movie.rated],
+          released: [this.movie.released],
+          runtime: [this.movie.runtime],
+          genre: [this.movie.genre],
+          director: [this.movie.director],
+          writer: [this.movie.writer],
+          actors: [this.movie.actors],
+          plot: [this.movie.plot],
+          language: [this.movie.language],
+          country: [this.movie.country],
+          awards: [this.movie.awards],
+          cardimg: [this.movie.cardimg],
+          posterimg: [this.movie.posterimg],
+          bannerimg: [this.movie.bannerimg],
+          urltrailer: [this.movie.urltrailer]
+        })
+      });
+    })
+  }
+
+  formUpdateMovie: FormGroup = this.fb.group({
+    id: [''],
+    title: [''],
+    year: [''],
+    saleprice: [''],
+    rentalprice: [''],
+    canberent: [''],
+    canbesold: [''],
+    commingsoon: [''],
+    noavailable: [''],
+    rated: [''],
+    released: [''],
+    runtime: [''],
+    genre: [''],
+    director: [''],
+    writer: [''],
+    actors: [''],
+    plot: [''],
+    language: [''],
+    country: [''],
+    awards: [''],
+    cardimg: [''],
+    posterimg: [''],
+    bannerimg: [''],
+    urltrailer: ['']
+  })
+
+  updateMovie(id:string){
+    Swal.fire({
+      title: '¿Deseas guardar los cambios?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      denyButtonText: `No guardar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.moviesService.updateMovie(this.formUpdateMovie.value, id)
+        .subscribe((res)=>{
+          console.log('update movie');
+        })
+        Swal.fire('Guardado!', '', 'success')
+      } else if (result.isDenied) {
+        this.formUpdateMovie = this.fb.group({
+          id: [this.movie.id],
+          title: [this.movie.title],
+          year: [this.movie.year],
+          saleprice: [this.movie.saleprice],
+          rentalprice: [this.movie.rentalprice],
+          canberent: [this.movie.canberent],
+          canbesold: [this.movie.canbesold],
+          commingsoon: [this.movie.commingsoon],
+          noavailable: [this.movie.noavailable],
+          rated: [this.movie.rated],
+          released: [this.movie.released],
+          runtime: [this.movie.runtime],
+          genre: [this.movie.genre],
+          director: [this.movie.director],
+          writer: [this.movie.writer],
+          actors: [this.movie.actors],
+          plot: [this.movie.plot],
+          language: [this.movie.language],
+          country: [this.movie.country],
+          awards: [this.movie.awards],
+          cardimg: [this.movie.cardimg],
+          posterimg: [this.movie.posterimg],
+          bannerimg: [this.movie.bannerimg],
+          urltrailer: [this.movie.urltrailer]
+        })
+        Swal.fire('Los cambios no fueron guardados', '', 'info')
+      }
+    })
+  }
+}
