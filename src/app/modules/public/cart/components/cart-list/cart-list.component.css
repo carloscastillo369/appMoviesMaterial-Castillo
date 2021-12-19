@@ -1,0 +1,11 @@
+.cart-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cart-text {
+    font-size: 30px;
+    font-style: italic;
+    color: #fff;
+}

@@ -1,0 +1,44 @@
+table {
+    width: 900px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.link-detail {
+    display: flex;
+    text-decoration: none;
+}
+
+.cartitem-image {
+    width: 60px;
+}
+ 
+.cartitem-details {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.text-detail {
+    font-size: 13px;
+}
+
+.btn-removeAll {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-device-width:940px){
+    table {
+        width: 600px;
+    }
+}
+
+@media screen and (max-device-width:632px){
+    table {
+        width: 350px;
+    }
+
+    th, td {
+        padding: 0px !important;
+    }
+}

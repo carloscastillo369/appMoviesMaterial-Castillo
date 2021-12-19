@@ -1,1 +1,9 @@
-<p>cart-page works!</p>
+<div class="cart-content">
+    <ng-container *ngIf="totalItemsCart == 0">
+      <app-cart-empty></app-cart-empty>  
+    </ng-container>
+    
+    <ng-container *ngIf="totalItemsCart != 0">
+      <app-cart-list></app-cart-list>
+    </ng-container>
+</div>

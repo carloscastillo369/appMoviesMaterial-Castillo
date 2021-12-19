@@ -51,7 +51,7 @@ export class CartService {
   getTotalPrice(){
     let total = 0;
     this.cartArrayMovies.map((i:any) => {
-      total += i.Price;
+      total += parseInt(i.price, 10); //mockAPI envia string en Fake.js - Price.
     })
     return total;
   }

@@ -9,6 +9,8 @@ import { CartWidgetComponent } from './components/cart-widget/cart-widget.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalTrailerComponent } from './components/modal-trailer/modal-trailer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartTableComponent } from './components/cart-table/cart-table.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CartWidgetComponent,
     FooterComponent,
     ModalTrailerComponent,
-    NavbarComponent
+    NavbarComponent,
+    CartTableComponent,
+    CartSummaryComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CardMovieComponent,
     CartWidgetComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    CartTableComponent,
+    CartSummaryComponent
   ]
 })
 export class SharedModule { }

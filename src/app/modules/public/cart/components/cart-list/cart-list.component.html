@@ -1,0 +1,7 @@
+<h3 class="cart-text">
+    <mat-icon>shopping_cart</mat-icon> Mi Carrito de compras ( {{cartMovies.length}} película{{cartMovies.length > 1? 's' : null}} )
+</h3>  
+<div class="cart-container">
+    <app-cart-table></app-cart-table>
+    <app-cart-summary [totalPrice]="totalPrice"></app-cart-summary>  
+</div>
