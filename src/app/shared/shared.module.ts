@@ -11,6 +11,7 @@ import { ModalTrailerComponent } from './components/modal-trailer/modal-trailer.
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartTableComponent } from './components/cart-table/cart-table.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { SnackBarConfirmComponent } from './components/snack-bar-confirm/snack-bar-confirm.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     ModalTrailerComponent,
     NavbarComponent,
     CartTableComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    SnackBarConfirmComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     FooterComponent,
     NavbarComponent,
     CartTableComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    SnackBarConfirmComponent
   ]
 })
 export class SharedModule { }

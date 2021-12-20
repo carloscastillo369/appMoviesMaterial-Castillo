@@ -1,0 +1,92 @@
+<div class="sign-up-container">
+    <div class="sign-up-form">
+        <form [formGroup]="formSignUp" (submit)="onSaveForm()">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input 
+                    matInput
+                    type="text"
+                    autocomplete="off"
+                    formControlName="name"
+                    [class.is-valid]="isValidField('name')"
+                    [class.is-invalid]="isInvalidField('name')"
+                >
+                <mat-error *ngIf="isInvalidField('name')">
+                    {{getErrorMessage('name')}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input 
+                    matInput
+                    type="email"
+                    autocomplete="off"
+                    placeholder="someone@example.com"
+                    formControlName="email"
+                    [class.is-valid]="isValidField('email')"
+                    [class.is-invalid]="isInvalidField('email')"
+                >
+                <mat-error *ngIf="isInvalidField('email')">
+                    {{getErrorMessage('email')}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input 
+                    matInput
+                    [type]="hide1 ? 'password' : 'text'"
+                    autocomplete="off"
+                    formControlName="password"
+                    [class.is-valid]="isValidField('password')"
+                    [class.is-invalid]="isInvalidField('password')"
+                >
+                <button mat-icon-button matSuffix (click)="hide1 = !hide1">
+                    <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="isInvalidField('password')">
+                    {{getErrorMessage('password')}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Confirmar contraseña</mat-label>
+                <input 
+                    matInput
+                    [type]="hide2 ? 'password' : 'text'"
+                    autocomplete="off"
+                    formControlName="confirmPassword"
+                    [class.is-valid]="isValidField('confirmPassword')"
+                    [class.is-invalid]="isInvalidField('confirmPassword')"
+                >
+                <button mat-icon-button matSuffix (click)="hide2 = !hide2">
+                    <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="isInvalidField('confirmPassword')">
+                    {{getErrorMessage('confirmPassword')}}
+                </mat-error>
+            </mat-form-field>
+
+            <div class="mb-3 form-check">
+                <input 
+                    type="checkbox" 
+                    class="form-check-input"
+                    formControlName="checkbox"
+                    [class.is-invalid]="isInvalidField('checkbox')"
+                >
+                <label class="form-check-label">
+                    Acepto los términos y condiciones
+                </label>
+                <div class="invalid-feedback" *ngIf="isInvalidField('checkbox')">
+                    {{getErrorMessage('checkbox')}}
+                </div>
+            </div>
+            <button mat-raised-button color="warn" type="submit" class="btn btn-submit" [disabled]="formSignUp.invalid">Crea tu cuenta de HomeMovie</button>
+        </form>
+        <div class="signin-button-container">
+            <p>¿Ya tienes una cuenta en HomeMovie?</p>
+            <button mat-raised-button color="primary" routerLink="/HomeMovie/signin" class="btn">Ingresa a tu cuenta de HomeMovie</button>
+        </div>
+    </div>
+</div>

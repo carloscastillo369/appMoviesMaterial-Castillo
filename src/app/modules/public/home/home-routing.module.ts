@@ -15,6 +15,14 @@ const routes: Routes = [
     loadChildren: () => import('../cart/cart.module').then(m => m.CartModule)
   },
   {
+    path: 'signin',
+    loadChildren: () => import('../sign-in/sign-in.module').then(m => m.SignInModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('../sign-up/sign-up.module').then(m => m.SignUpModule)
+  },
+  {
     path:'',
     redirectTo:'/HomeMovie/movies',
     pathMatch: 'full'

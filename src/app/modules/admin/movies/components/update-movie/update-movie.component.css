@@ -1,17 +1,74 @@
+.spinner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-update {
     width: 1000px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: 30px;
+    padding-top: 100px;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 10px;
 }
 
-form {
+.main-data {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.main-data > mat-form-field {
+    width: 48%;
+}
+
+.boolean-data {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.number-data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.number-data > mat-form-field {
+    width: 22%;
+}
+
+.textarea-data {
+    width: 100%;
+}
+
+.textarea-data > mat-form-field {
+    width: 100%;
+}
+
+.string-data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.string-data > mat-form-field {
+    width: 31%;
+    margin-bottom: 20px;
 }
 
 .btn-save {
     position: absolute;
-    bottom: 5%;
-    width: 150px;
+    width: 180px;
+    height: 45px;
+    top: 30px;
+    right: 30px;
 }

@@ -12,12 +12,12 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'/admin/movies',
+    redirectTo:'/admin/users',
     pathMatch: 'full'
   },
   {
     path: '**',//TODO 404 cuando no existe la ruta
-    redirectTo: '/admin/movies'
+    redirectTo: '/admin/users'
   }
 ];
 

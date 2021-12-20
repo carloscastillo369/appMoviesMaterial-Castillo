@@ -24,9 +24,9 @@
                         <p>{{movie.plot}}</p>
                         <p></p>
                         
-                        <hr *ngIf="movie.noavailable == 'true'">
+                        <hr *ngIf="!movie.saleavailable && !movie.rentavailable">
                         
-                        <h3 *ngIf="movie.noavailable == 'true'" class="no-available">Agotado</h3>
+                        <h3 *ngIf="!movie.saleavailable && !movie.rentavailable" class="no-available">Agotado</h3>
                     </mat-card-content>
                 </mat-card-subtitle>
             </div>

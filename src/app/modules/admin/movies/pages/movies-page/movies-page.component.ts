@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
 import { MoviesService } from '../../services/movies.service';
+import { MovieModel } from 'src/app/core/models/movie.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,9 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class MoviesPageComponent implements OnInit {
 
-  movies!:any;
+  movies:MovieModel[] = [];
 
-  @ViewChild(MatTable) table!: MatTable<any>;
   displayedColumns: string[] = ['id','titulo', 'accion'];
 
   constructor(private moviesService: MoviesService) { }
@@ -30,20 +29,19 @@ export class MoviesPageComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, elimínalo!'
+      confirmButtonText: 'Sí, elimínalo!',
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.moviesService.deleteMovie(id).subscribe((res)=>{
-          console.log('movie deleted');
-          
+          this.moviesService.getMovies().subscribe(res => (this.movies = res));
         })
-        this.table.renderRows();
-        Swal.fire(
-          'Eliminado!',
-          'La película ha sido eliminada.',
-          'success'
-        )
       }
+      Swal.fire(
+        'Eliminado!',
+        'La película ha sido eliminada.',
+        'success'
+      )
     })
   }
 

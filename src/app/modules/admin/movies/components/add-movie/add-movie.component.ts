@@ -21,21 +21,20 @@ export class AddMovieComponent implements OnInit {
   formAddMovie: FormGroup = this.fb.group({
     id: ['', [Validators.required]],
     title: ['', [Validators.required]],
-    year: ['', [Validators.required]],
+    saleavailable: [false, [Validators.required]],
+    rentavailable: [false, [Validators.required]],
+    commingsoon: [false, [Validators.required]],
     saleprice: ['', [Validators.required]],
     rentalprice: ['', [Validators.required]],
-    canberent: ['', [Validators.required]],
-    canbesold: ['', [Validators.required]],
-    commingsoon: ['', [Validators.required]],
-    noavailable: ['', [Validators.required]],
+    year: ['', [Validators.required]],
+    runtime: ['', [Validators.required]],
+    plot: ['', [Validators.required]],
     rated: ['', [Validators.required]],
     released: ['', [Validators.required]],
-    runtime: ['', [Validators.required]],
     genre: ['', [Validators.required]],
     director: ['', [Validators.required]],
     writer: ['', [Validators.required]],
     actors: ['', [Validators.required]],
-    plot: ['', [Validators.required]],
     language: ['', [Validators.required]],
     country: ['', [Validators.required]],
     awards: ['', [Validators.required]],
@@ -46,18 +45,28 @@ export class AddMovieComponent implements OnInit {
   })
 
   saveMovie(){
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'La película ha sido agregada',
-      showConfirmButton: false,
-      timer: 1500
-    })
     this.moviesService.saveMovie(this.formAddMovie.value)
-    .subscribe((data) => {
-      console.log('created a movie');
+    .subscribe((res) => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'La película ha sido agregada',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
     this.formAddMovie.reset();
+  }
+
+  isValidField (field:string){
+    return this.formAddMovie.get(field)?.valid;
+  }
+
+  isInvalidField (field:string) {
+    return (
+      this.formAddMovie.get(field)?.invalid && 
+      (this.formAddMovie.get(field)?.dirty || this.formAddMovie.get(field)?.touched)
+    )
   }
 
 }

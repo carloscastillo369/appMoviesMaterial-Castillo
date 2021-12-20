@@ -1,140 +1,122 @@
 <h1>Completar los datos:</h1>
 <div class="form-add">
     <form [formGroup]="formAddMovie" (submit)="saveMovie()">
-        <mat-form-field appearance="fill">
-            <mat-label>ID</mat-label>
-            <input type="text" formControlName="id" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Title</mat-label>
-            <input type="text" formControlName="title" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Year</mat-label>
-            <input type="number" formControlName="year" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Sale Price</mat-label>
-            <input type="number" formControlName="saleprice" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Rental Price</mat-label>
-            <input type="number" formControlName="rentalprice" matInput>
-        </mat-form-field>
-        
-        <mat-form-field appearance="fill">
-            <mat-label>Can be rent </mat-label>
-            <mat-select formControlName="canberent">
-              <mat-option value="true">True</mat-option>
-              <mat-option value="false">False</mat-option>
-            </mat-select>
-        </mat-form-field>
-        
-        <mat-form-field appearance="fill">
-            <mat-label>Can be sold </mat-label>
-            <mat-select formControlName="canbesold">
-              <mat-option value="true">True</mat-option>
-              <mat-option value="false">False</mat-option>
-            </mat-select>
-        </mat-form-field>
-        
-        <mat-form-field appearance="fill">
-            <mat-label>Comming Soon </mat-label>
-            <mat-select formControlName="commingsoon">
-              <mat-option value="true">True</mat-option>
-              <mat-option value="false">False</mat-option>
-            </mat-select>
-        </mat-form-field>
-        
-        <mat-form-field appearance="fill">
-            <mat-label>No Available </mat-label>
-            <mat-select formControlName="noavailable">
-              <mat-option value="true">True</mat-option>
-              <mat-option value="false">False</mat-option>
-            </mat-select>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Rated</mat-label>
-            <input type="text" formControlName="rated" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Released</mat-label>
-            <input type="text" formControlName="released" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Runtime</mat-label>
-            <input type="number" formControlName="runtime" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Genre</mat-label>
-            <input type="text" formControlName="genre" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Director</mat-label>
-            <input type="text" formControlName="director" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Writer</mat-label>
-            <input type="text" formControlName="writer" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Actors</mat-label>
-            <input type="text" formControlName="actors" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Plot</mat-label>
-            <textarea formControlName="plot" matInput></textarea>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Language</mat-label>
-            <input type="text" formControlName="language" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Country</mat-label>
-            <input type="text" formControlName="country" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Awards</mat-label>
-            <input type="text" formControlName="awards" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Card Image</mat-label>
-            <input type="text" formControlName="cardimg" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Poster Image</mat-label>
-            <input type="text" formControlName="posterimg" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>Banner Image</mat-label>
-            <input type="text" formControlName="bannerimg" matInput>
-        </mat-form-field>
-    
-        <mat-form-field appearance="fill">
-            <mat-label>URL Trailer</mat-label>
-            <input type="text" formControlName="urltrailer" matInput>
-        </mat-form-field>
-
         <button [disabled]="formAddMovie.invalid" class="btn-save" type="submit" mat-raised-button color="primary" >
             Guardar
         </button>
+        <div class="main-data">
+            <mat-form-field appearance="fill">
+                <mat-label>ID</mat-label>
+                <input type="text" formControlName="id" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input type="text" formControlName="title" matInput>
+            </mat-form-field>
+        </div>
+        <div class="boolean-data">
+            <mat-checkbox formControlName="saleavailable">Sale available</mat-checkbox>
+        
+            <mat-checkbox formControlName="rentavailable">Rent available</mat-checkbox>
+            
+            <mat-checkbox formControlName="commingsoon">Comming Soon</mat-checkbox>
+        </div>
+
+        <div class="number-data">
+            <mat-form-field appearance="fill">
+                <mat-label>Sale Price</mat-label>
+                <input type="number" formControlName="saleprice" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Rental Price</mat-label>
+                <input type="number" formControlName="rentalprice" matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Year</mat-label>
+                <input type="number" formControlName="year" matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Runtime</mat-label>
+                <input type="number" formControlName="runtime" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class="textarea-data">
+            <mat-form-field appearance="fill">
+                <mat-label>Plot</mat-label>
+                <textarea formControlName="plot" matInput></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="string-data">
+            <mat-form-field appearance="fill">
+                <mat-label>Rated</mat-label>
+                <input type="text" formControlName="rated" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Released</mat-label>
+                <input type="text" formControlName="released" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <input type="text" formControlName="genre" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Director</mat-label>
+                <input type="text" formControlName="director" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Writer</mat-label>
+                <input type="text" formControlName="writer" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Actors</mat-label>
+                <input type="text" formControlName="actors" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Language</mat-label>
+                <input type="text" formControlName="language" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Country</mat-label>
+                <input type="text" formControlName="country" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Awards</mat-label>
+                <input type="text" formControlName="awards" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Card Image</mat-label>
+                <input type="text" formControlName="cardimg" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Poster Image</mat-label>
+                <input type="text" formControlName="posterimg" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Banner Image</mat-label>
+                <input type="text" formControlName="bannerimg" matInput>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>URL Trailer</mat-label>
+                <input type="text" formControlName="urltrailer" matInput>
+            </mat-form-field>
+        </div>
     </form>
 </div>

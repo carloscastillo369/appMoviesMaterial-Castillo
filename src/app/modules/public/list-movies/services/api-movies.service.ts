@@ -9,14 +9,14 @@ import MoviesJson from 'src/assets/data/api-movies.json';
 })
 export class ApiMoviesService {
 
-  private urlAPI = "https://61bd6cde2a1dd4001708a047.mockapi.io/api/";
+  private urlAPI = "https://61bd6cde2a1dd4001708a047.mockapi.io/api/movies/";
 
   //movies: MovieModel[] = MoviesJson;
 
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<MovieModel[]>{
-    return this.http.get<MovieModel[]>(this.urlAPI + 'movies');
+    return this.http.get<MovieModel[]>(this.urlAPI);
   }
 
   //getMovies(){

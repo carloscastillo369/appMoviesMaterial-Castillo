@@ -2,3 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.confirm.mat-snack-bar-container {
+    background-color: #f44336;
+    color: #fff;
+    margin-top: 100px;
+}
