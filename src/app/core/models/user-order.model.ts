@@ -5,4 +5,5 @@ export interface UserOrderModel {
     name: string,
     email: string,
     orders: Array<OrderModel>
+    totalprice: number
 }

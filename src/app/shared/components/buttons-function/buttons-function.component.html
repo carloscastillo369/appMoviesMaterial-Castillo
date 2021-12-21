@@ -9,7 +9,10 @@
     <button mat-raised-button color="accent" *ngIf="movie.rentavailable" (click)="addMovie(movie, movie.rentalprice, 'renta')">
         ${{movie.rentalprice}} Renta 48Hs
     </button>
-    <button mat-raised-button routerLink="/movies">
-        <mat-icon>shopping_cart</mat-icon> Seguir comprando
+    <button mat-raised-button routerLink="/HomeMovie/movies">
+        <mat-icon>add_shopping_cart</mat-icon> Seguir comprando
+    </button>
+    <button mat-raised-button color="primary" routerLink="/HomeMovie/cart">
+        <mat-icon>shopping_cart</mat-icon> Ir al carrito
     </button>
 </div>

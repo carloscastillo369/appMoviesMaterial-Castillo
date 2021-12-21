@@ -6,6 +6,7 @@ import { NewUserModel } from 'src/app/core/models/newuser.model';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { Router } from '@angular/router';
+import { OrderModel } from '../../../../../core/models/order.model';
 
 @Component({
   selector: 'app-checkout-page',
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
 export class CheckoutPageComponent implements OnInit {
 
   user!:NewUserModel;
-  orders:any[] = [];
+  orders:OrderModel[] = [];
   totalPrice: number = 0;
 
   displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
@@ -37,7 +38,17 @@ export class CheckoutPageComponent implements OnInit {
       this.user = res[0];
     });
     this._cartService.getCartMoviesList().subscribe(res => {
-      this.orders = res;
+      let Orders: OrderModel[] = [];
+      res.map((i:any) => {
+        const order:OrderModel = {
+          id: i.id, 
+          title: i.title, 
+          type: i.type, 
+          price: i.price
+        }
+        Orders.push(order)
+      })
+      this.orders = Orders;
       this.totalPrice = this._cartService.getTotalPrice();
     })
   }
@@ -47,7 +58,8 @@ export class CheckoutPageComponent implements OnInit {
       id: this.user.id,
       name: this.user.name,
       email: this.user.email,
-      orders: this.orders
+      orders: this.orders,
+      totalprice: this.totalPrice
     })
     .subscribe(res => {
       this._snackBar.openFromComponent( SnackBarComponent, {

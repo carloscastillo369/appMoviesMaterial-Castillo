@@ -22,6 +22,7 @@ export class CartSummaryComponent implements OnInit {
   goToCheckout(){
     this._auth.getUserLogIn().subscribe(res => {
       if(res.length != 0){
+        
         this._router.navigate(['/HomeMovie/checkout'])
       }else {
         this._router.navigate(['/HomeMovie/signin'])

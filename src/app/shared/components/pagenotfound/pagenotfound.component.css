@@ -1,0 +1,26 @@
+.page-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+mat-icon {
+    font-size: 140px;
+    margin-right: 110px;
+    margin-bottom: 150px;
+    color: #fff;
+}
+
+.error {
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.notfound-text {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 40px;
+}

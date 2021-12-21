@@ -11,7 +11,6 @@ import { OrdersService } from '../../services/orders.service';
 export class OrderUserComponent implements OnInit {
 
   orders!:UserOrderModel;
-  totalPrice:number = 0;
 
   displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
 
@@ -24,17 +23,8 @@ export class OrderUserComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this._ordersService.getUserOrders(params.id).subscribe(res => {
         this.orders = res;
-        this.totalPrice = this.getTotalPrice(this.orders.orders);
       });
     })
-  }
-
-  getTotalPrice(array:any){
-    let total = 0;
-    array.map((i:any) => {
-      total += i.price
-    })
-    return total;
   }
 
 }

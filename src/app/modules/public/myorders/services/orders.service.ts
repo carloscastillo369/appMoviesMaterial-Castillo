@@ -14,13 +14,5 @@ export class OrdersService {
   getAllUsersOrders(): Observable<UserOrderModel[]>{
     return this.http.get<UserOrderModel[]>(this.urlAPI);
   }
-
-  getUserOrders(id:string): Observable<UserOrderModel>{
-    return this.http.get<UserOrderModel>(this.urlAPI + id);
-  }
-
-  deleteOrder(id: string){
-    return this.http.delete<UserOrderModel>(this.urlAPI + id);
-  }
   
 }

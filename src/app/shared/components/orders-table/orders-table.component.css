@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.price {
+    text-align: right;
+}
+
+.capitalize {
+    text-transform: capitalize;
+    text-align: center;
+}

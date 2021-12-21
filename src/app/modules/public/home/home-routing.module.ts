@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PagenotfoundComponent } from 'src/app/shared/components/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {
@@ -27,13 +28,17 @@ const routes: Routes = [
     loadChildren: () => import('../checkout/checkout.module').then(m => m.CheckoutModule)
   },
   {
+    path: 'myorders',
+    loadChildren: () => import('../myorders/myorders.module').then(m => m.MyordersModule)
+  },
+  {
     path:'',
     redirectTo:'/HomeMovie/movies',
     pathMatch: 'full'
   },
   {
-    path: '**',//TODO 404 cuando no existe la ruta
-    redirectTo: '/HomeMovie/movies'
+    path: '**',
+    component:PagenotfoundComponent
   }
 ];
 

@@ -42,7 +42,7 @@
                     [class.is-valid]="isValidField('password')"
                     [class.is-invalid]="isInvalidField('password')"
                 >
-                <button mat-icon-button matSuffix (click)="hide1 = !hide1">
+                <button mat-icon-button matSuffix type="button" (click)="hide1 = !hide1">
                     <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
                 <mat-error *ngIf="isInvalidField('password')">

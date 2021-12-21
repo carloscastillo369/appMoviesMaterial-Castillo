@@ -16,7 +16,7 @@ export class OrdersPageComponent implements OnInit {
   constructor(private _ordersService: OrdersService) { }
 
   ngOnInit(): void {
-    this._ordersService.getUsers().subscribe(res => {
+    this._ordersService.getAllUsersOrders().subscribe(res => {
       this.users = res;
     })
   }
@@ -34,7 +34,7 @@ export class OrdersPageComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this._ordersService.deleteOrder(id).subscribe((res)=>{
-          this._ordersService.getUsers().subscribe(res => (this.users = res));
+          this._ordersService.getAllUsersOrders().subscribe(res => (this.users = res));
         })
         Swal.fire(
           'Eliminado!',

@@ -1,0 +1,30 @@
+.myorders-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 30px 20px 30px;
+}
+
+.myorders-text {
+    font-size: 30px;
+    font-style: italic;
+    color: #fff;
+}
+
+.order-description {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.orders-empty {
+    text-align: center;
+    padding-top: 50px;
+    color: #fff;
+}
+ 
+.orders-empty-text {
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+ 

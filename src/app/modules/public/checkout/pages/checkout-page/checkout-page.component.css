@@ -8,6 +8,12 @@
     justify-content: space-between;
 }
 
+.checkout-text {
+    font-size: 30px;
+    font-style: italic;
+    color: #fff;
+}
+
 .personal-data {
     width: 400px;
     height: 120px;
@@ -25,26 +31,6 @@
     border-radius: 10px;
 }
 
-table {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.table-header {
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.text-bold {
-    font-weight: bold;
-    margin-bottom: 0px;
-}
-
-mat-divider {
-    margin-bottom: 20px;
-}
-
 .text-title {
     font-weight: bold;
 }
@@ -54,8 +40,9 @@ mat-divider {
     font-style: italic;
 }
 
-.price {
-    text-align: right;
+.text-bold {
+    font-weight: bold;
+    margin-bottom: 0px;
 }
 
 .total-price {
@@ -63,11 +50,6 @@ mat-divider {
     text-align: right;
     box-sizing: border-box;
     padding-right: 24px;
-}
-
-.capitalize {
-    text-transform: capitalize;
-    text-align: center;
 }
 
 .buttons-container {
@@ -87,4 +69,8 @@ mat-divider {
 .btn-movies {
     width: 180px;
     height: 50px;
+}
+
+mat-divider {
+    margin-bottom: 20px;
 }

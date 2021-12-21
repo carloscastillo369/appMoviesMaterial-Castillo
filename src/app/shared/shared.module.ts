@@ -12,6 +12,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartTableComponent } from './components/cart-table/cart-table.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { OrdersTableComponent } from './components/orders-table/orders-table.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     NavbarComponent,
     CartTableComponent,
     CartSummaryComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    OrdersTableComponent,
+    PagenotfoundComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,8 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     NavbarComponent,
     CartTableComponent,
     CartSummaryComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    OrdersTableComponent
   ]
 })
 export class SharedModule { }

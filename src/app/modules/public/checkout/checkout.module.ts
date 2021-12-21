@@ -4,6 +4,7 @@ import { CheckoutRoutingModule } from './checkout-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
   imports: [
     CommonModule,
     CheckoutRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class CheckoutModule { }
