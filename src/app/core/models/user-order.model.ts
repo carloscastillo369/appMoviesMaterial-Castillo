@@ -1,9 +1,8 @@
 import { OrderModel } from "./order.model";
 
-export interface UserModel {
+export interface UserOrderModel {
     id: string,
     name: string,
     email: string,
-    password: string
-    mycart: Array<OrderModel>
+    orders: Array<OrderModel>
 }

@@ -3,8 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.confirm.mat-snack-bar-container {
+.success.mat-snack-bar-container {
+    background-color: #3f51b5;
+    color: #fff;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.error.mat-snack-bar-container {
     background-color: #f44336;
     color: #fff;
     margin-top: 100px;
+    text-align: center;
 }

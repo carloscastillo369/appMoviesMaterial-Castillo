@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserModel } from 'src/app/core/models/user.model';
-import { UsersService } from '../../services/users.service';
+import { UserRegisteredModel } from 'src/app/core/models/user-registered.model';
+import { UsersService } from 'src/app/modules/admin/users/services/users.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class UsersPageComponent implements OnInit {
 
-  users:UserModel[] = [];
+  users:UserRegisteredModel[] = [];
 
   displayedColumns: string[] = ['id','nombre', 'email', 'accion'];
 
@@ -38,7 +38,7 @@ export class UsersPageComponent implements OnInit {
       }
       Swal.fire(
         'Eliminado!',
-        'La película ha sido eliminada.',
+        'El usuario ha sido eliminado.',
         'success'
       )
     })

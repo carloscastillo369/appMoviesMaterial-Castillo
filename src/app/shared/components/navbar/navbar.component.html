@@ -5,13 +5,34 @@
     </a>
     <span class="example-spacer"></span>
     <button mat-button routerLink="/HomeMovie/movies">
-        Movies
+        Peliculas
     </button>
     <app-cart-widget></app-cart-widget>
-    <button mat-button routerLink="/HomeMovie/signin">
-        Sign In
-    </button>
-    <button mat-button routerLink="/HomeMovie/signup">
-        Sign up
-    </button>
+    <ng-container *ngIf="!user">
+        <button class="btn-signin" mat-raised-button color="primary" routerLink="/HomeMovie/signin">
+            Iniciar Sesión
+        </button>
+        <button class="btn-signup" mat-raised-button color="warn" routerLink="/HomeMovie/signup">
+            Registrarse
+        </button>
+    </ng-container>
+    <ng-container *ngIf="user">
+            <button mat-mini-fab color="accent" [matMenuTriggerFor]="menu" class="btn-user"> 
+                <mat-icon>emoji_emotions</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item disabled>
+                    <mat-icon>person</mat-icon> {{user.name}}
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item>
+                    <mat-icon>shopping_basket</mat-icon>
+                    <span>Mis pedidos</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>lock_open</mat-icon>
+                    <span>Cerrar sesión</span>
+                </button>
+            </mat-menu>
+    </ng-container>
 </mat-toolbar>

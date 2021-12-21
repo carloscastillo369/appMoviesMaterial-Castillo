@@ -28,3 +28,7 @@ mat-toolbar {
 .logo-name {
     margin: 0;
 }
+
+.btn-signin, .btn-signup, .btn-user {
+    margin-left: 16px;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserModel } from 'src/app/core/models/user.model';
-import { UsersService } from '../../services/users.service';
+import { UserOrderModel } from 'src/app/core/models/user-order.model';
+import { OrdersService } from '../../services/orders.service';
 
 @Component({
   selector: 'app-order-user',
@@ -10,15 +10,18 @@ import { UsersService } from '../../services/users.service';
 })
 export class OrderUserComponent implements OnInit {
 
-  user!:UserModel
+  order!:UserOrderModel;
 
   displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
 
-  constructor(private _usersService: UsersService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private _ordersService: OrdersService, 
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this._usersService.getUser(params.id).subscribe((res: UserModel) => (this.user = res));
+      this._ordersService.getUserOrders(params.id).subscribe((res: UserOrderModel) => (this.order = res));
     })
   }
 

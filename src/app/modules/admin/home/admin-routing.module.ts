@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'movies',
-    loadChildren: () => import('../movies/movies.module').then(m => m.MoviesModule)
-  },
-  {
     path: 'users',
     loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('../orders/orders.module').then(m => m.OrdersModule)
+  },
+  {
+    path: 'movies',
+    loadChildren: () => import('../movies/movies.module').then(m => m.MoviesModule)
   },
   {
     path:'',

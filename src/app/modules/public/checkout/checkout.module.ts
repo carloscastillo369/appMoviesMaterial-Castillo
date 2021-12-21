@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersRoutingModule } from './users-routing.module';
+import { CheckoutRoutingModule } from './checkout-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 
-import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 
 
 @NgModule({
   declarations: [
-    UsersPageComponent,
+    CheckoutPageComponent
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule,
+    CheckoutRoutingModule,
     MaterialModule
   ]
 })
-export class UsersModule { }
+export class CheckoutModule { }

@@ -1,9 +1,9 @@
-<div *ngIf="user != undefined">
+<div *ngIf="order != undefined">
     <div>
-        <p>id usuario: {{user.id}} || nombre: {{user.name}} || email: {{user.email}}</p>
+        <p>id usuario: {{order.id}} || nombre: {{order.name}} || email: {{order.email}}</p>
     </div>
     <div>
-        <table mat-table [dataSource]="user.mycart">
+        <table mat-table [dataSource]="order.orders">
   
             <ng-container matColumnDef="posicion">
               <th mat-header-cell *matHeaderCellDef> No. </th>

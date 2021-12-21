@@ -13,9 +13,6 @@ export class CartListComponent implements OnInit {
   cartMovies: CartMovieModel[] = [];
   totalPrice:number = 0;
 
-  @ViewChild(MatTable) table!: MatTable<any>;
-  displayedColumns: string[] = ['posicion','descripcion', 'accion','tipo','precio'];
-
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -24,10 +21,6 @@ export class CartListComponent implements OnInit {
       this.cartMovies = res;
       this.totalPrice = this.cartService.getTotalPrice();
     })
-  }
-
-  removeAllCart(){
-    this.cartService.removeAllCart();
   }
 
 }

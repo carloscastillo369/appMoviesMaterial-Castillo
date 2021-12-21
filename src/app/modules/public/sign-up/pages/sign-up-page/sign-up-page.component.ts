@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from 'src/app/modules/admin/users/services/users.service';
+import { RegisterService } from '../../services/register.service';
 import { PasswordValidator } from 'src/app/shared/validators/passwordValidators';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { SnackBarConfirmComponent } from 'src/app/shared/components/snack-bar-confirm/snack-bar-confirm.component';
+import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -21,11 +21,11 @@ export class SignUpPageComponent implements OnInit {
 
   duration: number = 3;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
 
   constructor(
     private fb:FormBuilder, 
-    private usersService: UsersService,
+    private _registerService: RegisterService,
     private _snackBar: MatSnackBar
   ) { }
 
@@ -84,7 +84,7 @@ export class SignUpPageComponent implements OnInit {
 
   onSaveForm(){
     if(this.formSignUp.valid){
-      this.usersService.saveUser(
+      this._registerService.saveUser(
         {
           id: this.formSignUp.value.id,
           name: this.formSignUp.value.name,
@@ -93,15 +93,16 @@ export class SignUpPageComponent implements OnInit {
         }
       )
       .subscribe(res => {
-        this._snackBar.openFromComponent( SnackBarConfirmComponent, {
+        this._snackBar.openFromComponent( SnackBarComponent, {
+          data: "Usuario registrado con éxito!",
           duration: this.duration*1000,
           verticalPosition: this.verticalPosition,
           horizontalPosition: this.horizontalPosition,
-          panelClass: 'confirm'
+          panelClass: 'success'
         })
       });
+      this.onResetForm();
     }
-    this.onResetForm();
   }
 
   getErrorMessage (field:string) {

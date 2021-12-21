@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { UsersService } from 'src/app/modules/admin/users/services/users.service';
+import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -13,7 +17,16 @@ export class SignInPageComponent implements OnInit {
 
   hide: boolean = true;
 
-  constructor(private fb:FormBuilder) { }
+  duration: number = 3;
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+
+  constructor(
+    private fb:FormBuilder,
+    private _usersService: UsersService,
+    private _authService: AuthService,
+    private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +41,7 @@ export class SignInPageComponent implements OnInit {
       [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(12), 
+        Validators.maxLength(15), 
         Validators.pattern(this.patternPassword)
       ]]
   }) 
@@ -50,6 +63,30 @@ export class SignInPageComponent implements OnInit {
 
   onSaveForm(){
     if(this.formSignIn.valid){
+      const dataForm = this.formSignIn.value;
+      this._usersService.getUsers().subscribe(res => {
+        let arrayUsers: any = [];
+        arrayUsers = res;
+        const finder = arrayUsers.filter((i:any) => i.email == dataForm.email && i.password == dataForm.password);
+        if(finder.length > 0) {
+          this._authService.logInUser(finder);
+          this._snackBar.openFromComponent( SnackBarComponent, {
+            data: `Bienvenido: ${finder[0].name}!`,
+            duration: this.duration*1000,
+            verticalPosition: this.verticalPosition,
+            horizontalPosition: this.horizontalPosition,
+            panelClass: 'success'
+          })
+        } else {
+          this._snackBar.openFromComponent( SnackBarComponent, {
+            data: 'Email o contraseña incorrectos',
+            duration: this.duration*1000,
+            verticalPosition: this.verticalPosition,
+            horizontalPosition: this.horizontalPosition,
+            panelClass: 'error'
+          })
+        }
+      })
       this.onResetForm()
     }
   }

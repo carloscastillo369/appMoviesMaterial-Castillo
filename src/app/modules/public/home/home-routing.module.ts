@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('../sign-up/sign-up.module').then(m => m.SignUpModule)
   },
   {
+    path: 'checkout',
+    loadChildren: () => import('../checkout/checkout.module').then(m => m.CheckoutModule)
+  },
+  {
     path:'',
     redirectTo:'/HomeMovie/movies',
     pathMatch: 'full'
