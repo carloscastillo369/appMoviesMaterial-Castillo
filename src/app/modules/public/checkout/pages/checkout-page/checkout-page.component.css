@@ -30,23 +30,10 @@ table {
     margin-bottom: 20px;
 }
 
-.buttons-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.btn-Pay {
-    width: 180px;
-    height: 50px;
-    margin-left: 10px;
-}
-
-.btn-movies {
-    width: 180px;
-    height: 50px;
+.table-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .text-bold {
@@ -65,4 +52,39 @@ mat-divider {
 .text-subtitle {
     font-weight: normal;
     font-style: italic;
+}
+
+.price {
+    text-align: right;
+}
+
+.total-price {
+    width: 100%;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 24px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.btn-Pay {
+    width: 180px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.btn-movies {
+    width: 180px;
+    height: 50px;
 }

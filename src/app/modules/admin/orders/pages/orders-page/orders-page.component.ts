@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserOrderModel } from 'src/app/core/models/user-order.model';
 import { OrdersService } from '../../services/orders.service';
-import { UserRegisteredModel } from '../../../../../core/models/user-registered.model';
-import { OrderModel } from 'src/app/core/models/order.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-orders-page',
@@ -20,8 +18,30 @@ export class OrdersPageComponent implements OnInit {
   ngOnInit(): void {
     this._ordersService.getUsers().subscribe(res => {
       this.users = res;
-      console.log(this.users);
-      
+    })
+  }
+
+  deleteOrder(id:string){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "No podrás recuperarlo!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo!',
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._ordersService.deleteOrder(id).subscribe((res)=>{
+          this._ordersService.getUsers().subscribe(res => (this.users = res));
+        })
+        Swal.fire(
+          'Eliminado!',
+          'La película ha sido eliminada.',
+          'success'
+        )
+      }
     })
   }
 

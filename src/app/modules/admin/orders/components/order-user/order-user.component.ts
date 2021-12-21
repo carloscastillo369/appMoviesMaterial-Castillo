@@ -10,7 +10,8 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class OrderUserComponent implements OnInit {
 
-  order!:UserOrderModel;
+  orders!:UserOrderModel;
+  totalPrice:number = 0;
 
   displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
 
@@ -21,8 +22,19 @@ export class OrderUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this._ordersService.getUserOrders(params.id).subscribe((res: UserOrderModel) => (this.order = res));
+      this._ordersService.getUserOrders(params.id).subscribe(res => {
+        this.orders = res;
+        this.totalPrice = this.getTotalPrice(this.orders.orders);
+      });
     })
+  }
+
+  getTotalPrice(array:any){
+    let total = 0;
+    array.map((i:any) => {
+      total += i.price
+    })
+    return total;
   }
 
 }

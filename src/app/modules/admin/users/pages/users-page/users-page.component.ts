@@ -35,12 +35,12 @@ export class UsersPageComponent implements OnInit {
         this.usersService.deleteUser(id).subscribe((res)=>{
           this.usersService.getUsers().subscribe(res => (this.users = res));
         })
+        Swal.fire(
+          'Eliminado!',
+          'El usuario ha sido eliminado.',
+          'success'
+        )
       }
-      Swal.fire(
-        'Eliminado!',
-        'El usuario ha sido eliminado.',
-        'success'
-      )
     })
   }
 

@@ -1,0 +1,67 @@
+.orders-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.personal-data {
+    width: 400px;
+    height: 120px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.orders-table {
+    width: 900px;
+    padding: 15px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.text-bold {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+mat-divider {
+    margin-bottom: 20px;
+}
+
+.text-title {
+    font-weight: bold;
+}
+
+.text-subtitle {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.price {
+    text-align: right;
+}
+
+.total-price {
+    width: 100%;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 24px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+    text-align: center;
+}

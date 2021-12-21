@@ -36,12 +36,12 @@ export class MoviesPageComponent implements OnInit {
         this.moviesService.deleteMovie(id).subscribe((res)=>{
           this.moviesService.getMovies().subscribe(res => (this.movies = res));
         })
+        Swal.fire(
+          'Eliminado!',
+          'La película ha sido eliminada.',
+          'success'
+        )
       }
-      Swal.fire(
-        'Eliminado!',
-        'La película ha sido eliminada.',
-        'success'
-      )
     })
   }
 

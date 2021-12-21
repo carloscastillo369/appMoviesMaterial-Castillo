@@ -19,4 +19,9 @@ export class AuthService {
     this.user = user;
     this.$user.next(this.user);
   }
+
+  logOutUser(){
+    this.user = [];
+    this.$user.next(this.user);
+  }
 }

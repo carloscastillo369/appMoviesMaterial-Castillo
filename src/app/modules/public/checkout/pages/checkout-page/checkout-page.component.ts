@@ -3,6 +3,9 @@ import { AuthService } from 'src/app/modules/public/sign-in/services/auth.servic
 import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 import { CheckoutService } from 'src/app/modules/public/checkout/services/checkout.service';
 import { NewUserModel } from 'src/app/core/models/newuser.model';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout-page',
@@ -17,10 +20,16 @@ export class CheckoutPageComponent implements OnInit {
 
   displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
 
+  duration: number = 3;
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+
   constructor(
     private _authService: AuthService,
     private _cartService: CartService,
-    private _checkoutService: CheckoutService
+    private _checkoutService: CheckoutService,
+    private _snackBar: MatSnackBar,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -41,8 +50,15 @@ export class CheckoutPageComponent implements OnInit {
       orders: this.orders
     })
     .subscribe(res => {
-      console.log('pedido realizado');
-      
+      this._snackBar.openFromComponent( SnackBarComponent, {
+        data: 'Pedido realizado con éxito!',
+        duration: this.duration*1000,
+        verticalPosition: this.verticalPosition,
+        horizontalPosition: this.horizontalPosition,
+        panelClass: 'success'
+      })
+      this._cartService.removeAllCart();
+      this._router.navigate(['/HomeMovie/movies']);
     })
   }
 

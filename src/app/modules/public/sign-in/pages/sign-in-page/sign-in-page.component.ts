@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/modules/admin/users/services/users.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { AuthService } from '../../services/auth.service';
@@ -19,13 +20,14 @@ export class SignInPageComponent implements OnInit {
 
   duration: number = 3;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
   constructor(
     private fb:FormBuilder,
     private _usersService: UsersService,
     private _authService: AuthService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -77,6 +79,7 @@ export class SignInPageComponent implements OnInit {
             horizontalPosition: this.horizontalPosition,
             panelClass: 'success'
           })
+          this._router.navigate(['/HomeMovie/movies'])
         } else {
           this._snackBar.openFromComponent( SnackBarComponent, {
             data: 'Email o contraseña incorrectos',

@@ -21,7 +21,7 @@ export class SignUpPageComponent implements OnInit {
 
   duration: number = 3;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
   constructor(
     private fb:FormBuilder, 

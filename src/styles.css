@@ -6,13 +6,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .success.mat-snack-bar-container {
     background-color: #3f51b5;
     color: #fff;
-    margin-top: 100px;
     text-align: center;
+    margin: 7px;
 }
 
 .error.mat-snack-bar-container {
     background-color: #f44336;
     color: #fff;
-    margin-top: 100px;
     text-align: center;
+    margin: 7px;
 }
