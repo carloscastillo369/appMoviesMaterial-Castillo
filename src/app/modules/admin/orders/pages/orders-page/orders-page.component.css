@@ -1,5 +1,5 @@
 .orders-list {
-    width: 700px;
+    max-width: 700px;
     margin: 0 auto;
     border: 1px solid rgba(216, 210, 210, 0.788);
     border-radius: 10px;
@@ -12,4 +12,29 @@ table {
 
 .btn-delete {
     margin-right: 30px;
+}
+
+.buttons-container-mobile {
+    display: none;
+}
+
+@media(max-width:700px){
+    .orders-list {
+        padding: 20px 0px;
+    }
+}
+
+@media(max-width:599px){
+    .buttons-container-mobile {
+        display: block;
+        width: 92px;
+    }
+
+    .buttons-container-web {
+        display: none;
+    }
+
+    .btn-delete {
+        margin-right: 10px;
+    }
 }

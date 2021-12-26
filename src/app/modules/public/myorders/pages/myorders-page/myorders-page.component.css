@@ -10,11 +10,12 @@
     color: #fff;
 }
 
+mat-expansion-panel-header {
+    min-height: 70px;
+}
+
 .order-description {
-    width: 500px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width: 50%;
 }
 
 .orders-empty {

@@ -1,16 +1,26 @@
 <mat-toolbar>
-    <span>Admin</span>
-    <span class="example-spacer"></span>
-    <button mat-button routerLink="/admin/users">
-        Usuarios
-    </button>
-    <button mat-button routerLink="/admin/orders">
-        Pedidos
-    </button>
-    <button mat-button routerLink="/admin/movies">
-        Películas
-    </button>
-    <button mat-button routerLink="/HomeMovie">
-        <mat-icon>lock_open</mat-icon> Cerrar Sesión
-    </button>
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+
+    <div class="admin">
+        <span>Admin</span>
+    </div>
+
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <button mat-button routerLink="/admin/users">
+            Usuarios
+        </button>
+        <button mat-button routerLink="/admin/orders">
+            Pedidos
+        </button>
+        <button mat-button routerLink="/admin/movies">
+            Películas
+        </button>
+        <button mat-button routerLink="/HomeMovie">
+            <mat-icon>lock_open</mat-icon> Cerrar Sesión
+        </button>
+    </div>
 </mat-toolbar>

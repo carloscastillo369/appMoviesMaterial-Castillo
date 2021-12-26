@@ -1,4 +1,4 @@
-.main {
+.body {
     max-width: 2400px;
     margin: 0 auto;
     background-color: #181818;
@@ -9,4 +9,13 @@
     min-height: calc(100vh - 164px) ;
     margin: 0 auto;
     padding-top: 64px;
+}
+
+mat-sidenav-container {
+    background-color: inherit;
+}
+
+mat-sidenav {
+    width: 250px;
+    background-color: inherit;
 }

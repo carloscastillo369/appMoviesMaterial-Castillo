@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ButtonsFunctionComponent } from './components/buttons-function/buttons-function.component';
 import { CardMovieComponent } from './components/card-movie/card-movie.component';
@@ -14,6 +15,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 
 
 @NgModule({
@@ -28,12 +30,14 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     CartSummaryComponent,
     SnackBarComponent,
     OrdersTableComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    SidenavListComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule
   ],
   exports: [
     ButtonsFunctionComponent,
@@ -44,7 +48,8 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     CartTableComponent,
     CartSummaryComponent,
     SnackBarComponent,
-    OrdersTableComponent
+    OrdersTableComponent,
+    SidenavListComponent
   ]
 })
 export class SharedModule { }

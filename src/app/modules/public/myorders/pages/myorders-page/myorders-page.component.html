@@ -1,4 +1,4 @@
-<<ng-container *ngIf="userOrders.length > 0">
+<ng-container *ngIf="userOrders.length > 0">
   <div class="myorders-container">
     <h3 class="myorders-text"> <mat-icon>shopping_basket</mat-icon> Mis pedidos</h3>
     <mat-accordion>
@@ -8,10 +8,8 @@
             Pedido N° {{userOrders.indexOf(orders) + 1}}
           </mat-panel-title>
           <mat-panel-description>
-            <div class="order-description">
-              <p>OrderId: {{orders.id}}</p>
-              <p>Precio Total: $ {{orders.totalprice.toFixed(2)}}</p>
-            </div>
+              <p class="order-description">OrderId: {{orders.id}}</p>
+              <p class="order-description">Precio Total: $ {{orders.totalprice.toFixed(2)}}</p>
           </mat-panel-description>
         </mat-expansion-panel-header>
 

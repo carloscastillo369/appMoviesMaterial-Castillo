@@ -1,4 +1,9 @@
+<button mat-raised-button routerLink="/admin/movies">
+    <mat-icon>arrow_back</mat-icon> Regresar
+</button>
+
 <h1>Completar los datos:</h1>
+
 <div class="form-add">
     <form [formGroup]="formAddMovie" (submit)="saveMovie()">
         <button [disabled]="formAddMovie.invalid" class="btn-save" type="submit" mat-raised-button color="primary" >

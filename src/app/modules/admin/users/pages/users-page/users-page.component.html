@@ -10,17 +10,24 @@
           <td mat-cell *matCellDef="let user">{{user.name}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="email">
+        <ng-container matColumnDef="email"z>
             <th mat-header-cell *matHeaderCellDef> Email </th>
             <td mat-cell *matCellDef="let user">{{user.email}}</td>
         </ng-container>
 
         <ng-container matColumnDef="accion">
           <th mat-header-cell *matHeaderCellDef> Accion </th>
-          <td mat-cell *matCellDef="let user"> 
-              <button class="btn-delete" mat-raised-button color="warn" (click)="deleteUser(user.id)">
-                  <mat-icon>delete</mat-icon> Eliminar
-              </button>
+          <td mat-cell *matCellDef="let user">
+            <div class="buttons-container-web">
+              <button mat-raised-button color="warn" (click)="deleteUser(user.id)">
+                <mat-icon>delete</mat-icon> Eliminar
+            </button>             
+            </div>
+            <div class="buttons-container-mobile">
+              <button mat-mini-fab color="warn" (click)="deleteUser(user.id)">
+                <mat-icon>delete</mat-icon>
+            </button>             
+            </div>
           </td>
         </ng-container>
       

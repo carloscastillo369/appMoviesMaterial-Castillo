@@ -3,16 +3,16 @@ import { NewUserModel } from 'src/app/core/models/newuser.model';
 import { AuthService } from 'src/app/modules/public/sign-in/services/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-sidenav-list',
+  templateUrl: './sidenav-list.component.html',
+  styleUrls: ['./sidenav-list.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class SidenavListComponent implements OnInit {
 
-  @Output() sidenavToggle = new EventEmitter;
-  
+  @Output() sidenavClose = new EventEmitter();
+
   user!:NewUserModel;
-  
+
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
@@ -21,12 +21,13 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-  onToggleSidenav(){
-    this.sidenavToggle.emit();
+  onSidenavClose(){
+    this.sidenavClose.emit();
   }
 
   logOut(){
     this._authService.logOutUser();
+    this.onSidenavClose();
   }
 
 }
