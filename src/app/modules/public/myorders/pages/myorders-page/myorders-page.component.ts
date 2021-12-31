@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UserOrderModel } from 'src/app/core/models/user-order.model';
-import { AuthService } from '../../../sign-in/services/auth.service';
-import { OrdersService } from '../../services/orders.service';
+
+import { AuthService } from 'src/app/modules/public/sign-in/services/auth.service';
+import { OrdersService } from 'src/app/modules/public/myorders/services/orders.service';
 
 @Component({
   selector: 'app-myorders-page',
@@ -18,7 +20,7 @@ export class MyordersPageComponent implements OnInit {
   constructor(
     private _ordersService: OrdersService,
     private _authService: AuthService,
-    private _router:Router
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class MyordersPageComponent implements OnInit {
           this.userOrders = finder;
         })
       } else {
-        this._router.navigate(['/HomeMovie/movies'])
+        this.router.navigate(['/HomeMovie/movies'])
       }
     })
   }

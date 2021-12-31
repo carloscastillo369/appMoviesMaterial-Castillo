@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
-import { RegisterService } from '../../services/register.service';
+import { RegisterService } from 'src/app/modules/public/sign-up/services/register.service';
 
 import { PasswordErrorMatcher, PasswordValidator } from 'src/app/shared/validators/passwordValidators';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
+import { NewUserModel } from 'src/app/core/models/newuser.model';
+
 
 @Component({
   selector: 'app-sign-up-page',
@@ -30,7 +32,7 @@ export class SignUpPageComponent implements OnInit {
   constructor(
     private fb:FormBuilder, 
     private _registerService: RegisterService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -83,17 +85,16 @@ export class SignUpPageComponent implements OnInit {
   }
 
   onSaveForm(){
+    const newUser: NewUserModel = {
+      id: '',
+      name: this.formSignUp.value.name,
+      email: this.formSignUp.value.email,
+      password: this.formSignUp.value.password
+    }
     if(this.formSignUp.valid){
-      this._registerService.saveUser(
-        {
-          id: this.formSignUp.value.id,
-          name: this.formSignUp.value.name,
-          email: this.formSignUp.value.email,
-          password: this.formSignUp.value.password
-        }
-      )
+      this._registerService.saveUser(newUser)
       .subscribe(res => {
-        this._snackBar.openFromComponent( SnackBarComponent, {
+        this.snackBar.openFromComponent( SnackBarComponent, {
           data: "Usuario registrado con éxito!",
           duration: this.duration*1000,
           verticalPosition: this.verticalPosition,

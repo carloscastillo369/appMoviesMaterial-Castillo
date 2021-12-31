@@ -14,10 +14,10 @@ export class UsersPageComponent implements OnInit {
 
   displayedColumns: string[] = ['id','nombre', 'email', 'accion'];
 
-  constructor(private usersService: UsersService) { }
+  constructor(private _usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.usersService.getUsers().subscribe(res => (this.users = res));
+    this._usersService.getUsers().subscribe(res => (this.users = res));
   }
 
   deleteUser(id:string){
@@ -32,8 +32,8 @@ export class UsersPageComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usersService.deleteUser(id).subscribe((res)=>{
-          this.usersService.getUsers().subscribe(res => (this.users = res));
+        this._usersService.deleteUser(id).subscribe((res)=>{
+          this._usersService.getUsers().subscribe(res => (this.users = res));
         })
         Swal.fire(
           'Eliminado!',

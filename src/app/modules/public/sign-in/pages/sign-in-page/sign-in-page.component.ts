@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { NewUserModel } from 'src/app/core/models/newuser.model';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
 import { UsersService } from 'src/app/modules/admin/users/services/users.service';
+import { AuthService } from 'src/app/modules/public/sign-in/services/auth.service';
+
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
-import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-sign-in-page',
@@ -27,8 +29,8 @@ export class SignInPageComponent implements OnInit {
     private fb:FormBuilder,
     private _usersService: UsersService,
     private _authService: AuthService,
-    private _snackBar: MatSnackBar,
-    private _router: Router
+    private snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -68,22 +70,22 @@ export class SignInPageComponent implements OnInit {
     if(this.formSignIn.valid){
       const dataForm = this.formSignIn.value;
       this._usersService.getUsers().subscribe(res => {      
-        const finder = res.filter((i:any) => i.email == dataForm.email && i.password == dataForm.password);
-        
+        const userFound = res.filter((i:any) => i.email == dataForm.email && i.password == dataForm.password);
+
         if(dataForm.email == "admin@correo.pe" && dataForm.password == "Admin22"){
-          this._router.navigate(['/admin'])
-        } else if(finder.length > 0) {
-          this._authService.logInUser(finder);
-          this._snackBar.openFromComponent( SnackBarComponent, {
-            data: `Bienvenido: ${finder[0].name}!`,
+          this.router.navigate(['/admin'])
+        } else if(userFound.length > 0) {
+          this._authService.logInUser(userFound);
+          this.snackBar.openFromComponent( SnackBarComponent, {
+            data: `Bienvenido: ${userFound[0].name}!`,
             duration: this.duration*1000,
             verticalPosition: this.verticalPosition,
             horizontalPosition: this.horizontalPosition,
             panelClass: 'success'
           })
-          this._router.navigate(['/HomeMovie/movies'])
+          this.router.navigate(['/HomeMovie/movies'])
         } else {
-          this._snackBar.openFromComponent( SnackBarComponent, {
+          this.snackBar.openFromComponent( SnackBarComponent, {
             data: 'Email o contraseña incorrectos',
             duration: this.duration*1000,
             verticalPosition: this.verticalPosition,
@@ -92,6 +94,7 @@ export class SignInPageComponent implements OnInit {
           })
         }
       })
+
       this.onResetForm()
     }
   }

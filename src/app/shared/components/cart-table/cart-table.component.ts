@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+
 import { CartMovieModel } from 'src/app/core/models/cartmovie.model';
+
 import { CartService } from 'src/app/modules/public/cart/services/cart.service';
+
 
 @Component({
   selector: 'app-cart-table',
@@ -15,22 +18,22 @@ export class CartTableComponent implements OnInit {
   @ViewChild(MatTable) table!: MatTable<any>;
   displayedColumns: string[] = ['posicion','descripcion', 'accion','tipo','precio'];
 
-  constructor(private cartService: CartService) { }
+  constructor(private _cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getCartMoviesList()
+    this._cartService.getCartMoviesList()
     .subscribe((res: CartMovieModel[]) => {
       this.cartMovies = res;
     })
   }
 
   deleteCartItem(product: CartMovieModel){
-    this.cartService.deleteCartItem(product);
+    this._cartService.deleteCartItem(product);
     this.table.renderRows();
   }
 
   removeAllCart(){
-    this.cartService.removeAllCart();
+    this._cartService.removeAllCart();
   }
 
 

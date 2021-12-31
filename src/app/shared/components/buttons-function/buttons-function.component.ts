@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MovieModel } from 'src/app/core/models/movie.model';
-import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 
+import { MovieModel } from 'src/app/core/models/movie.model';
+
+import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 
 import { ModalTrailerComponent } from '../modal-trailer/modal-trailer.component';
 
@@ -19,7 +20,7 @@ export class ButtonsFunctionComponent implements OnInit {
   modal:string = "modal";
 
   constructor(
-    private cartService: CartService, 
+    private _cartService: CartService, 
     public dialog: MatDialog
   ) { }
 
@@ -27,7 +28,7 @@ export class ButtonsFunctionComponent implements OnInit {
   }
 
   addMovie(product: MovieModel, price: number, type: string){
-    this.cartService.addMovieToCart(product, price, type);    
+    this._cartService.addMovieToCart(product, price, type);    
   }
 
   openDialog(movie: MovieModel){

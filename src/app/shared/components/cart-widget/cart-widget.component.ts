@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartService } from 'src/app/modules/public/cart/services/cart.service';
+
 
 @Component({
   selector: 'app-cart-widget',
@@ -10,10 +12,10 @@ export class CartWidgetComponent implements OnInit {
 
   totalItemsCart: number = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private _cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getCartMoviesList()
+    this._cartService.getCartMoviesList()
     .subscribe(res => {
       this.totalItemsCart = res.length;
     })

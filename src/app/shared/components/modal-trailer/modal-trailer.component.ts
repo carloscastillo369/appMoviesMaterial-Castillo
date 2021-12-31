@@ -1,7 +1,9 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MovieModel } from '../../../core/models/movie.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+import { MovieModel } from 'src/app/core/models/movie.model';
+
 
 @Component({
   selector: 'app-modal-trailer',

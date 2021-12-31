@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { OrderModel } from 'src/app/core/models/order.model';
+
+
 @Component({
   selector: 'app-orders-table',
   templateUrl: './orders-table.component.html',
@@ -7,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class OrdersTableComponent implements OnInit {
 
-  @Input() orders:any;
+  @Input() orders!:OrderModel[];
 
   displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
 

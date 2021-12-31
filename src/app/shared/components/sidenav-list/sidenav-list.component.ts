@@ -1,6 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 import { NewUserModel } from 'src/app/core/models/newuser.model';
+
 import { AuthService } from 'src/app/modules/public/sign-in/services/auth.service';
+
 
 @Component({
   selector: 'app-sidenav-list',

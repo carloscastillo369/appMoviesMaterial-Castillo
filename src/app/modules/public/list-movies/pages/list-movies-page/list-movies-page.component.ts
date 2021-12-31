@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MovieModel } from 'src/app/core/models/movie.model';
+
 import { ApiMoviesService } from 'src/app/modules/public/list-movies/services/api-movies.service';
+
 
 @Component({
   selector: 'app-list-movies-page',
@@ -11,11 +14,10 @@ export class ListMoviesPageComponent implements OnInit {
 
   movies: MovieModel[] = [];
 
-  constructor(private apiMoviesService: ApiMoviesService) { }
+  constructor(private _apiMoviesService: ApiMoviesService) { }
 
   ngOnInit(): void {
-    this.apiMoviesService.getMovies().subscribe(res => (this.movies = res));
-    //this.movies = this.apiMoviesService.getMovies();
+    this._apiMoviesService.getMovies().subscribe(res => (this.movies = res));
   }
 
 }
