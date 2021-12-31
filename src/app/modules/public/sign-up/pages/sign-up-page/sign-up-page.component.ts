@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../../services/register.service';
-import { PasswordValidator } from 'src/app/shared/validators/passwordValidators';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
+import { RegisterService } from '../../services/register.service';
+
+import { PasswordErrorMatcher, PasswordValidator } from 'src/app/shared/validators/passwordValidators';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 
 @Component({
@@ -15,6 +17,8 @@ export class SignUpPageComponent implements OnInit {
   patternLetters = /^[a-zA-Z ñ]+$/;
   patternEmail = /^[0-9a-zA-Z._-]+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
   patternPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,15}$/;
+
+  errorMatcher = new PasswordErrorMatcher();
 
   hide1: boolean = true;
   hide2: boolean = true;
@@ -57,7 +61,7 @@ export class SignUpPageComponent implements OnInit {
         Validators.required
       ]],
     checkbox: ['', [Validators.requiredTrue]]
-  }, {validator: PasswordValidator})
+  }, {validators: PasswordValidator})
 
   isValidField (field:string){
     return this.formSignUp.get(field)?.valid;
@@ -65,11 +69,7 @@ export class SignUpPageComponent implements OnInit {
 
   isInvalidField (field:string) {
     if( field == 'confirmPassword' ){
-      return  (
-        this.formSignUp.errors?.misMatch || 
-        (this.formSignUp.get(field)?.invalid && 
-        (this.formSignUp.get(field)?.dirty || this.formSignUp.get(field)?.touched)));
-      
+      return  this.formSignUp.errors?.misMatch;
     } else {
         return (
           this.formSignUp.get(field)?.invalid && 

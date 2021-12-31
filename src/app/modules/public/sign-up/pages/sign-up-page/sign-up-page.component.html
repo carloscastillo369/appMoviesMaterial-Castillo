@@ -57,6 +57,7 @@
                     [type]="hide2 ? 'password' : 'text'"
                     autocomplete="off"
                     formControlName="confirmPassword"
+                    [errorStateMatcher]="errorMatcher"
                     [class.is-valid]="isValidField('confirmPassword')"
                     [class.is-invalid]="isInvalidField('confirmPassword')"
                 >
@@ -78,9 +79,9 @@
                 <label class="form-check-label">
                     Acepto los términos y condiciones
                 </label>
-                <div class="invalid-feedback" *ngIf="isInvalidField('checkbox')">
+                <mat-error *ngIf="isInvalidField('checkbox')">
                     {{getErrorMessage('checkbox')}}
-                </div>
+                </mat-error>
             </div>
             <button mat-raised-button color="warn" type="submit" class="btn btn-submit" [disabled]="formSignUp.invalid">Crea tu cuenta de HomeMovie</button>
         </form>
