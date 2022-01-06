@@ -28,4 +28,11 @@ mat-expansion-panel-header {
     margin-bottom: 30px;
     font-size: 40px;
 }
- 
+
+.spinner {
+    width: 100%;
+    height: calc(100vh - 164px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

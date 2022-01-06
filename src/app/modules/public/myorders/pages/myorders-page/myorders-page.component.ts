@@ -13,7 +13,7 @@ import { OrdersService } from 'src/app/modules/public/myorders/services/orders.s
 })
 export class MyordersPageComponent implements OnInit {
 
-  public userOrders:UserOrderModel[] = [];
+  public userOrders!:UserOrderModel[];
 
   constructor(
     private _ordersService: OrdersService,

@@ -1,27 +1,35 @@
-<ng-container *ngIf="userOrders.length > 0">
-  <div class="myorders-container">
-    <h3 class="myorders-text"> <mat-icon>shopping_basket</mat-icon> Mis pedidos</h3>
-    <mat-accordion>
-      <mat-expansion-panel *ngFor="let orders of userOrders" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Pedido N° {{userOrders.indexOf(orders) + 1}}
-          </mat-panel-title>
-          <mat-panel-description>
-              <p class="order-description">OrderId: {{orders.id}}</p>
-              <p class="order-description">Precio Total: $ {{orders.totalprice.toFixed(2)}}</p>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+<ng-container *ngIf="userOrders, else ProgressSpinner">
+  <ng-container *ngIf="userOrders.length > 0">
+    <div class="myorders-container">
+      <h3 class="myorders-text"> <mat-icon>shopping_basket</mat-icon> Mis pedidos</h3>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let orders of userOrders" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Pedido N° {{userOrders.indexOf(orders) + 1}}
+            </mat-panel-title>
+            <mat-panel-description>
+                <p class="order-description">OrderId: {{orders.id}}</p>
+                <p class="order-description">Precio Total: $ {{orders.totalprice.toFixed(2)}}</p>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+  
+          <app-orders-table [orders]="orders.orders"></app-orders-table>
+         
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </ng-container>
 
-        <app-orders-table [orders]="orders.orders"></app-orders-table>
-       
-      </mat-expansion-panel>
-    </mat-accordion>
-  </div>
+  <ng-container *ngIf="userOrders.length == 0">
+    <div class="orders-empty">
+      <h1 class="orders-empty-text">No tiene ningún pedido realizado.</h1>
+    </div>
+  </ng-container>
 </ng-container>
 
-<ng-container *ngIf="userOrders.length == 0">
-  <div class="orders-empty">
-    <h1 class="orders-empty-text">No tiene ningún pedido realizado.</h1>
+<ng-template #ProgressSpinner>
+  <div class="spinner">
+      <mat-spinner></mat-spinner>
   </div>
-</ng-container>
+</ng-template>
