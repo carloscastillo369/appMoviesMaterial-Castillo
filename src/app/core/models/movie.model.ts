@@ -1,10 +1,10 @@
 export interface MovieModel {
     id: string,
     title: string,
-    saleavailable: boolean,
-    rentavailable: boolean,
+    purchaseavailable: boolean,
+    rentalavailable: boolean,
     commingsoon: boolean,
-    saleprice: number,
+    purchaseprice: number,
     rentalprice: number,
     year: number,
     runtime: number,

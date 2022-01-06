@@ -1,11 +1,21 @@
-.cart-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.cart-list-container {
+    background-color: #181818;
+    padding: 20px 5px 20px;
 }
 
 .cart-text {
-    font-size: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 15px;
     font-style: italic;
     color: #fff;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+@media (min-width: 600px){
+    .cart-text {
+        font-size: 20px;
+    }
 }

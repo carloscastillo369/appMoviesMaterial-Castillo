@@ -1,35 +1,41 @@
-<mat-card *ngIf="!movie.commingsoon" [routerLink]="['/HomeMovie/detailmovie', movie.id, movie.title]" class="detail-movie">
-    <mat-card-header>
-        <mat-card-title>{{movie.title}}</mat-card-title>
-        <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
-        <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src={{movie.cardimg}}>
-    <div *ngIf="movie.saleavailable || movie.rentavailable" class="options">
-        <div *ngIf="movie.saleavailable" class="compra-option">
-            <p>Compra</p>
+<ng-container *ngIf="movie.commingsoon">
+    <mat-card class="card">
+        <img mat-card-image src={{movie.cardimg}} class="card-image-overlay">
+        <mat-card-content class="card-content">
+            <p>{{movie.year}}</p>
+            <h3>{{movie.title}}</h3>
+            <span>{{movie.genre}}</span>
+        </mat-card-content>
+        <div class="options">
+            <div class="commingsoon">
+                <p>Proximamente</p>
+            </div>
         </div>
-        <div *ngIf="movie.rentavailable" class="renta-option">
-            <p>Renta</p>
-        </div>
-    </div>
-    <div *ngIf="!movie.saleavailable && !movie.rentavailable" class="options">
-        <div class="no-available">
-            <p class="fw-bold">Agotado</p>
-        </div>
-    </div>
-</mat-card>
+    </mat-card>
+</ng-container>
 
-<mat-card *ngIf="movie.commingsoon">
-    <mat-card-header>
-        <mat-card-title>{{movie.title}}</mat-card-title>
-        <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
-        <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src={{movie.cardimg}}>
-    <div class="options">
-        <div class="commingsoon">
-            <p class="fw-bold">Proximamente</p>
-        </div>
-    </div>
-</mat-card>
+<ng-container *ngIf="!movie.commingsoon">
+    <a [routerLink]="['/HomeMovie/detailmovie', movie.id, movie.title]">
+        <mat-card class="card card-hover">
+            <img mat-card-image src={{movie.cardimg}} class="card-image-overlay">
+            <mat-card-content class="card-content">
+                <p>{{movie.year}}</p>
+                <h3>{{movie.title}}</h3>
+                <span>{{movie.genre}}</span>
+            </mat-card-content>
+            <div *ngIf="movie.purchaseavailable || movie.rentalavailable" fxFlex="row" fxLayoutAlign="space-between" fxLayoutAlign.gt-xs="end" class="options">
+                <div *ngIf="movie.purchaseavailable" fxFlex="48" fxFlex.gt-xs="30" class="option buy-option">
+                    <p>Compra</p>
+                </div>
+                <div *ngIf="movie.rentalavailable" fxFlex="48" fxFlex.gt-xs="30" class="option rent-option">
+                    <p>Renta</p>
+                </div>
+            </div>
+            <div *ngIf="!movie.purchaseavailable && !movie.rentalavailable" class="options">
+                <div class="no-available">
+                    <p>Agotado</p>
+                </div>
+            </div>
+        </mat-card>
+    </a>
+</ng-container>

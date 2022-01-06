@@ -1,6 +1,7 @@
-.list-cards-movies {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 20px;
+.list-movies {
+    padding: 20px 5px;
+}
+
+.item-movie {
+    padding: 5px;
 }

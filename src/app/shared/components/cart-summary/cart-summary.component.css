@@ -7,7 +7,17 @@ h4 {
     font-size: 15px;
 }
 
-.cartsummary {
+.cartsummary-container {
+    width: 100%;
+    background-color: #212121;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.cartsummary-content {
     display: flex;
     width: 300px;
     padding: 20px;

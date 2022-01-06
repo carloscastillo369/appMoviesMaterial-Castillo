@@ -1,12 +1,12 @@
 <div class="buttons-container">
-    <p class="text">Renta o compra las mejores peliculas.</p>
+    <p class="text">Renta o compra las mejores películas.</p>
     <button mat-raised-button class="btn-trailer" (click)="openDialog(movie)">
         <mat-icon>smart_display</mat-icon> Ver trailer
     </button>
-    <button mat-raised-button color="primary" *ngIf="movie.saleavailable" (click)="addMovie(movie, movie.saleprice, 'compra')">
-        ${{movie.saleprice}} Compra 
+    <button mat-raised-button color="primary" *ngIf="movie.purchaseavailable" (click)="buyMovie(movie.id)">
+        ${{movie.purchaseprice}} Compra 
     </button>
-    <button mat-raised-button color="accent" *ngIf="movie.rentavailable" (click)="addMovie(movie, movie.rentalprice, 'renta')">
+    <button mat-raised-button color="accent" *ngIf="movie.rentalavailable" (click)="rentMovie(movie.id)">
         ${{movie.rentalprice}} Renta 48Hs
     </button>
     <button mat-raised-button routerLink="/HomeMovie/movies">

@@ -1,55 +1,49 @@
-<div *ngIf="movie == undefined" class="spinner">
-    <mat-spinner></mat-spinner>
-</div>
-
-<div *ngIf="movie != undefined" class="detail-movie-container">
-    <mat-card>
-        <img src={{movie.bannerimg}} class="image-banner">
-        <div class="card-content">
-            <div class="image-poster-container">
-                <img mat-card-image src={{movie.posterimg}} class="image-poster"> 
+<ng-container *ngIf="movie, else ProgressSpinner">
+    <div class="detail-movie-container" fxLayout="row wrap" fxLayoutAlign.gt-xs="space-between">
+        <div fxFlex="100" fxFlex.gt-sm="59" class="card">
+            <div class="image-banner" style="background-image: linear-gradient(rgba(41, 128, 185, 0), rgb(0, 0, 0)), url({{movie.bannerimg}});">
             </div>
-            <div class="card-body">
-                <mat-card-title>{{movie.title}}</mat-card-title>
-                <mat-card-subtitle>
-                    <div class="principal-info-movie">
-                        <p>Genero: {{movie.genre}} &nbsp;&nbsp; Lanzamiento: {{movie.released}} </p>
-                        <p>Clasificación: {{movie.rated}} &nbsp;&nbsp; Duración: {{movie.runtime}} min</p>
+            <div class="card-content">
+                <div class="card-header">
+                    <div class="poster">
+                        <img src={{movie.posterimg}}>
                     </div>
-    
+
+                    <div class="principal-detail-movie">
+                        <h1>{{movie.title}}</h1>
+                        <p>{{movie.genre}}</p>
+                        <p>Clasificación: {{movie.rated}}</p>
+                        <p>Duración: {{movie.runtime}} min</p>     
+                    </div>    
+                </div>
+                <div class="card-body">
                     <hr>
-                            
-                    <mat-card-content>
-                        <h2>Sinopsis</h2>
-                        <p>{{movie.plot}}</p>
-                        <p></p>
-                        
-                        <hr *ngIf="!movie.saleavailable && !movie.rentavailable">
-                        
-                        <h3 *ngIf="!movie.saleavailable && !movie.rentavailable" class="no-available">Agotado</h3>
-                    </mat-card-content>
-                </mat-card-subtitle>
+
+                    <h2>Sinopsis</h2>
+                    <p>{{movie.plot}}</p>
+                    <p></p>
+                    
+                    <hr *ngIf="!movie.purchaseavailable && !movie.rentalavailable">
+                    
+                    <h3 *ngIf="!movie.purchaseavailable && !movie.rentalavailable" class="no-available">Agotado</h3>
+                </div>          
             </div>
         </div>
-    </mat-card>
 
-    <app-buttons-function [movie]="movie"></app-buttons-function>
-
-    <div class="extra-detail">
-        <p class="fw-bold">Director: 
-            <span class="fst-italic">{{movie.director}}</span> 
-        </p>
-        <p class="fw-bold">Actores: 
-            <span class="fst-italic">{{movie.actors}}</span>
-        </p>
-        <p class="fw-bold">Idioma: 
-            <span class="fst-italic">{{movie.language}}</span>
-        </p>
-        <p class="fw-bold">País: 
-            <span class="fst-italic"> {{movie.country}}</span>
-        </p>
-        <p class="fw-bold">Premios: 
-            <span class="fst-italic">{{movie.awards}}</span>
-        </p>   
+        <app-buttons-function fxFlex="100" fxFlex.gt-xs="49" fxFlex.gt-sm="40" fxLayoutAlign="center" [movie]="movie"></app-buttons-function>
+        
+        <div fxFlex="100" fxFlex.gt-xs="49" fxFlex.gt-sm="59" class="extra-detail">
+            <p>Director: <span>{{movie.director}}</span> </p>
+            <p>Actores: <span>{{movie.actors}}</span> </p>
+            <p>Idioma: <span>{{movie.language}}</span> </p>
+            <p>País: <span> {{movie.country}}</span> </p>
+            <p>Premios: <span>{{movie.awards}}</span> </p>   
+        </div>
     </div>
-</div>
+</ng-container>
+
+<ng-template #ProgressSpinner>
+    <div class="spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

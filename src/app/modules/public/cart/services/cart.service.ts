@@ -27,7 +27,8 @@ export class CartService {
       year: product.year,
       runtime: product.runtime,
       type: type,
-      price: price
+      price: price,
+      quantity: 1
     }
     const filter = this.cartArrayMovies.filter((i:any) => i.id == product.id);
       if(filter.length == 0){
@@ -42,7 +43,7 @@ export class CartService {
   getTotalPrice(){
     let total = 0;
     this.cartArrayMovies.map((i:any) => {
-      total += i.price;
+      total += i.price*i.quantity;
     })
     return total;
   }
@@ -58,6 +59,18 @@ export class CartService {
 
   removeAllCart(){
     this.cartArrayMovies = [];
+    this.cartMoviesList.next(this.cartArrayMovies);
+  }
+
+  increaseQtyMovie(id:string){
+    const result = this.cartArrayMovies.filter(i => i.id == id)
+    result[0].quantity += 1;
+    this.cartMoviesList.next(this.cartArrayMovies);
+  }
+
+  decreaseQtyMovie(id:string){
+    const result = this.cartArrayMovies.filter(i => i.id == id)
+    result[0].quantity -= 1;
     this.cartMoviesList.next(this.cartArrayMovies);
   }
 }

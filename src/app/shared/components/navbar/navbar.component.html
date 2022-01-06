@@ -1,21 +1,22 @@
-<mat-toolbar>
+<mat-toolbar class="navbar">
     <div fxHide.gt-xs>
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
 
-    <div>
+    <div fxFlex fxLayoutAlign="start">
         <a class="logo-container" routerLink="/HomeMovie/movies">
             <img class="logo-image" src="../../../assets/images/logo/Logo-White.png" alt="">
             <p class="logo-name">HomeMovie</p>
         </a>
     </div>
 
-    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <div fxFlex fxLayoutAlign="end" fxHide.xs>
         <button mat-button routerLink="/HomeMovie/movies">
-            Peliculas
+            Películas
         </button>
+        <app-cart-widget></app-cart-widget>
         <ng-container *ngIf="!user">
             <button class="btn-signin" mat-raised-button color="primary" routerLink="/HomeMovie/signin">
                 Iniciar Sesión
@@ -45,5 +46,5 @@
         </ng-container>
     </div>
 
-    <app-cart-widget></app-cart-widget>
+    <app-cart-widget fxHide.gt-xs></app-cart-widget>
 </mat-toolbar>

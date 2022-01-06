@@ -1,9 +1,51 @@
-table {
-    width: 900px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
+input[type=number] { -moz-appearance:textfield; }
+
+td, th {
+    padding: 0 !important;
+}
+
+.table-container {
+    width: 100%;
+    padding: 20px 5px;
+    margin-bottom: 15px;
+    background-color: #212121;
+    border-radius: 5px;
+    overflow-x: scroll;
+}
+
+.table-content {
+    min-width: 580px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.mat-row:hover .mat-cell {
+    background-color: #ffc7c7;
+}
+
+.mat-header-cell {
+    text-align: center;
+}
+
+.cell-product {
+    max-width: 200px;
+    padding: 5px 0px;
+}
+
+.cell-center {
+    text-align: center;
+}
+
+.cell-right {
+    text-align: right;
+}
+  
 .link-detail {
     display: flex;
     text-decoration: none;
@@ -18,27 +60,60 @@ table {
     display: flex;
     flex-direction: column;
 }
- 
+
 .text-detail {
     font-size: 13px;
 }
 
-.btn-removeAll {
-    margin-bottom: 20px;
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (max-device-width:940px){
-    table {
-        width: 600px;
+.quantity-input {
+    width: 36px;
+    height: 23px;
+    padding: 0;
+    text-align: center;
+    border: 1px solid rgb(243, 233, 233);
+    border-radius: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.btn-decrease, .btn-increase {
+    min-width: 23px !important;
+    height: 23px !important;
+    font-size: 12px;
+    padding: 0px;
+    border-radius: 0;
+    line-height: 0;
+}
+
+.btn-decrease {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.btn-increase {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+@media (min-width: 600px){
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .table-content {
+        width: 100%;
     }
 }
 
-@media screen and (max-device-width:632px){
-    table {
-        width: 350px;
-    }
-
-    th, td {
-        padding: 0px !important;
+@media (min-width: 960px){
+    .table-container {
+        min-height: 352px;
+        padding: 20px;
     }
 }

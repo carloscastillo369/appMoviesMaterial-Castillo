@@ -16,10 +16,12 @@
     </ng-container>
 
     <ng-container *ngIf="user">
-        <mat-list-item class="nav-caption" [matMenuTriggerFor]="menu">
-            <mat-icon>emoji_emotions</mat-icon> <span class="nav-caption-text"> Mi perfil <mat-icon>expand_more</mat-icon></span>
+        <mat-list-item class="nav-caption" >
+            <div [matMenuTriggerFor]="menu">
+                <mat-icon>emoji_emotions</mat-icon> <span class="nav-caption-text"> Mi perfil <mat-icon>expand_more</mat-icon></span>
+            </div>
         </mat-list-item>
-        <mat-menu #menu="matMenu">
+        <mat-menu #menu="matMenu" xPosition="after">
             <button mat-menu-item disabled>
                 <mat-icon>person</mat-icon> {{user.name}}
             </button>

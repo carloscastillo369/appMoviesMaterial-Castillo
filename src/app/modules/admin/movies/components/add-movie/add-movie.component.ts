@@ -21,10 +21,10 @@ export class AddMovieComponent implements OnInit {
   formAddMovie: FormGroup = this.fb.group({
     id: ['', [Validators.required]],
     title: ['', [Validators.required]],
-    saleavailable: [false, [Validators.required]],
-    rentavailable: [false, [Validators.required]],
+    purchaseavailable: [false, [Validators.required]],
+    rentalavailable: [false, [Validators.required]],
     commingsoon: [false, [Validators.required]],
-    saleprice: ['', [Validators.required]],
+    purchaseprice: ['', [Validators.required]],
     rentalprice: ['', [Validators.required]],
     year: ['', [Validators.required]],
     runtime: ['', [Validators.required]],

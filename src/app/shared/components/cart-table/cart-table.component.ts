@@ -16,7 +16,7 @@ export class CartTableComponent implements OnInit {
   cartMovies: CartMovieModel[] = [];
 
   @ViewChild(MatTable) table!: MatTable<any>;
-  displayedColumns: string[] = ['posicion','descripcion', 'accion','tipo','precio'];
+  displayedColumns: string[] = ['posicion','descripcion', 'accion','tipo','cantidad', 'precio','subTotal'];
 
   constructor(private _cartService: CartService) { }
 
@@ -34,6 +34,14 @@ export class CartTableComponent implements OnInit {
 
   removeAllCart(){
     this._cartService.removeAllCart();
+  }
+
+  increase( id: string ){
+    this._cartService.increaseQtyMovie(id);
+  }
+
+  decrease( id: string ){
+    this._cartService.decreaseQtyMovie(id);
   }
 
 

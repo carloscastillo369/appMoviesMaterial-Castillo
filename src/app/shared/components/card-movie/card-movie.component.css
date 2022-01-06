@@ -1,84 +1,140 @@
-mat-card {
-    width: 360px;
-    height: 219px;
-    padding: 0px;
-    margin-bottom: 12px;
-    box-sizing: border-box;
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    padding-top: 134%;
+    border-radius: 5px;
     background-color: transparent;
-    display: flex;
-    align-items: flex-end;
 }
 
-.detail-movie:hover {
-    box-shadow: 0px 0px 10px 2px #fff;
+.card-hover:hover {
+    box-shadow: 0px 0px 7px 1px #fff;
     cursor: pointer;
 }
 
-mat-card-header {
-    position: relative;
-    z-index: 100;
+.card-image-overlay {
+    width: 100%;
+    height: 100%; /*auto*/    
+    position: absolute;
+    top: 0;
+    margin: 0 !important;
+    opacity: 0.6;
 }
 
-mat-card-title, mat-card-subtitle {
+.card-content {
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    margin: 0;
+    padding: 100% 15px 20px;
     color: #fff;
 }
 
-img {
-    width: 360px;
-    height: 219px;
-    margin: 0;
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    opacity: 50%;
+.card-content > h3 {
+    font-size: 18px;
+    font-weight: 300;
+    max-height: 55px;
+    line-height: 25px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+.card-content > p {
+    font-size: 17px;
+    color: #b0b4b9;
+    margin-bottom: 5px;
+}
+
+.card-content > span {
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    color: #bbb;
+}
 
 .options {
+    width: 100%;
+    height: 22px;
     position: absolute;
     top: 0;
     z-index: 100;
+}
+
+.option {
     width: 100%;
+    border-radius: 3px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
-.compra-option {
-    width: 70px;
-    height: 30px;
-    color: #fff;
+.buy-option {
     background-color: #0d6efd;
-    text-align: center;
-    border-radius: 3px;
-    margin-right: 2px;
 }
 
-.renta-option {
-    width: 60px;
-    height: 30px;
-    color: #fff;
+.rent-option {
     background-color: #6c757d;
+}
+
+.buy-option > p, .rent-option > p {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.no-available, .commingsoon {
+    width: 100%;
+    height: 22px;
     text-align: center;
     border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .no-available {
-    width: 100px;
-    height: 30px;
     color: #842029;
     background-color: #f8d7da;
     border-color: #f5c2c7;
-    text-align: center;
-    border-radius: 3px;
 }
 
 .commingsoon {
-    width: 150px;
-    height: 30px;
     color: #084298;
     background-color: #cfe2ff;
     border-color: #b6d4fe;
-    text-align: center;
-    border-radius: 3px;
+}
+
+.no-available > p, .commingsoon > p {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+    .card-content > h3 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    
+    .card-content > span {
+        font-size: 17px;
+    }
+
+    .rent-option {
+        margin-left: 4px;
+    }
+
+    .no-available, .commingsoon {
+        height: 28px;
+    }
+    
+    .no-available > p, .commingsoon > p {
+        font-size: 17px;
+    }
 }

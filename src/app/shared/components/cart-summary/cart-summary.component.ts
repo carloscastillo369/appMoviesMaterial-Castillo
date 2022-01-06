@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartMovieModel } from 'src/app/core/models/cartmovie.model';
+import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 
 import { AuthService } from 'src/app/modules/public/sign-in/services/auth.service';
 
@@ -13,21 +15,28 @@ export class CartSummaryComponent implements OnInit {
 
   @Input() totalPrice!:number;
 
+  totale:any;
+
   constructor(
-    private _router: Router,
-    private _auth: AuthService
+    private router: Router,
+    private _auth: AuthService,
+    private _cartService: CartService
   ) { }
 
   ngOnInit(): void {
+    this._cartService.getCartMoviesList()
+    .subscribe((res) => {
+      this.totale = this._cartService.getTotalPrice();
+    })
   }
 
   goToCheckout(){
     this._auth.getUserLogIn().subscribe(res => {
       if(res.length != 0){
         
-        this._router.navigate(['/HomeMovie/checkout'])
+        this.router.navigate(['/HomeMovie/checkout'])
       }else {
-        this._router.navigate(['/HomeMovie/signin'])
+        this.router.navigate(['/HomeMovie/signin'])
       }
     })
   }
