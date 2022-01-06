@@ -1,23 +1,32 @@
 <div class="checkout-container" *ngIf="user">
-  <h3 class="checkout-text"> <mat-icon>shopping_cart_checkout</mat-icon> Resumen de mi orden</h3>
-  <div class="checkout-content">
-    <div class="personal-data">
-      <h3 class="text-bold">Datos Personales:</h3>
-      <mat-divider></mat-divider>
-      <p class="text-title">Nombre: <span class="text-subtitle">{{user.name}}</span> </p>
-      <p class="text-title">Email: <span class="text-subtitle">{{user.email}}</span> </p>
+  <div class="cart-text">
+    <mat-icon>shopping_cart_checkout</mat-icon> 
+    <span>Resumen de mi orden</span> 
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between">
+    <div fxFlex="100" fxFlex.gt-sm="30" class="personal-data">
+      <div class="data">
+        <h3 class="text-bold">Datos Personales:</h3>
+        <mat-divider></mat-divider>
+        <p class="text-title">Nombre: <span class="text-subtitle">{{user.name}}</span> </p>
+        <p class="text-title">Email: <span class="text-subtitle">{{user.email}}</span> </p>        
+      </div>
     </div>
-    <div class="orders-table">
-      <h3 class="text-bold">Lista de pedido</h3>
-      <mat-divider></mat-divider>
 
-      <app-orders-table [orders]="orders"></app-orders-table>
-
-      <div class="total-price">
-        <h3 class="text-bold">Total a Pagar: $ {{totalPrice.toFixed(2)}}</h3>
+    <div xFlex="100" fxFlex.gt-sm="69" class="orders-table-container">
+      <div class="orders-table">
+        <h3 class="text-bold">Lista de pedido</h3>
+        <mat-divider></mat-divider>
+  
+        <app-orders-table [orders]="orders"></app-orders-table>
+  
+        <div class="total-price">
+          <h3 class="text-bold">Total a Pagar: $ {{totalPrice.toFixed(2)}}</h3>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="buttons-container">
     <button mat-raised-button color="accent" class="btn-movies" routerLink="/HomeMovie/movies">
       <mat-icon>shopping_cart</mat-icon> Seguir Comprando

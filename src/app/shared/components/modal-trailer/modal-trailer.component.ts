@@ -12,8 +12,8 @@ import { MovieModel } from 'src/app/core/models/movie.model';
 })
 export class ModalTrailerComponent implements OnInit {
 
-  movieTitle: string;
-  urlTrailer: SafeResourceUrl;
+  public movieTitle: string;
+  public urlTrailer: SafeResourceUrl;
 
   constructor( 
     private sanitizer: DomSanitizer, 

@@ -13,7 +13,7 @@
           <div class="cartitem-details">
             <strong>{{product.title}}</strong>
             <span class="text-detail">Año: {{product.year}}</span>
-            <span class="text-detail">Duración: {{product.runtime}}</span>
+            <span class="text-detail">Duración: {{MinToHours(product.runtime)}}</span>
           </div>
         </a>
       </td>
@@ -26,7 +26,7 @@
                 <mat-icon>delete</mat-icon>
             </button>
         </td>
-      </ng-container>
+    </ng-container>
 
     <ng-container matColumnDef="tipo">
       <th mat-header-cell *matHeaderCellDef> Tipo </th>
@@ -49,7 +49,7 @@
       <td class="cell-right" mat-cell *matCellDef="let product"> {{product.price.toFixed(2)}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="subTotal">
+    <ng-container matColumnDef="subtotal">
       <th mat-header-cell *matHeaderCellDef> Sub-Total </th>
       <td class="cell-right" mat-cell *matCellDef="let product"> {{(product.price*product.quantity).toFixed(2)}} </td>
     </ng-container>

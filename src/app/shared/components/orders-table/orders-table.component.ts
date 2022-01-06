@@ -12,7 +12,7 @@ export class OrdersTableComponent implements OnInit {
 
   @Input() orders!:OrderModel[];
 
-  displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
+  public displayedColumns: string[] = ['posicion','descripcion','tipo', 'cantidad', 'precio', 'subtotal'];
 
   constructor() { }
 

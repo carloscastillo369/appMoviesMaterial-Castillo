@@ -13,9 +13,7 @@ import { AuthService } from 'src/app/modules/public/sign-in/services/auth.servic
 })
 export class CartSummaryComponent implements OnInit {
 
-  @Input() totalPrice!:number;
-
-  totale:any;
+  totalPrice!: number;
 
   constructor(
     private router: Router,
@@ -26,7 +24,7 @@ export class CartSummaryComponent implements OnInit {
   ngOnInit(): void {
     this._cartService.getCartMoviesList()
     .subscribe((res) => {
-      this.totale = this._cartService.getTotalPrice();
+      this.totalPrice = this._cartService.getTotalPrice();
     })
   }
 

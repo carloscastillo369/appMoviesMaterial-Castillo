@@ -16,11 +16,11 @@ import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar
 })
 export class SignInPageComponent implements OnInit {
 
+  public hide: boolean = true;
+
   patternEmail = /^[0-9a-zA-Z._-]+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
   patternPassword = /^[0-9a-zA-Zñ]+$/;
-
-  hide: boolean = true;
-
+  
   duration: number = 3;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';

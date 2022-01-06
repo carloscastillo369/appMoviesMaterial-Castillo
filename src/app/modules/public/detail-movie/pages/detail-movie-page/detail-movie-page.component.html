@@ -13,7 +13,7 @@
                         <h1>{{movie.title}}</h1>
                         <p>{{movie.genre}}</p>
                         <p>Clasificación: {{movie.rated}}</p>
-                        <p>Duración: {{movie.runtime}} min</p>     
+                        <p>Duración: {{hours}} hr{{hours > 1? 's' : null}}  {{mins}} min</p>     
                     </div>    
                 </div>
                 <div class="card-body">

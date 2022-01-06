@@ -1,19 +1,33 @@
-table {
+.table-container {
     width: 100%;
+    overflow-x: scroll;
+}
+
+.table-content {
+    min-width: 580px;
     margin-bottom: 20px;
 }
 
-.table-header {
+.mat-header-cell {
     text-align: center;
     font-weight: bold;
-    font-size: 14px;
 }
 
-.price {
+.cell-right {
     text-align: right;
 }
 
-.capitalize {
+.cell-center {
     text-transform: capitalize;
     text-align: center;
+}
+
+@media (min-width: 600px){
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .table-content {
+        width: 100%;
+    }
 }

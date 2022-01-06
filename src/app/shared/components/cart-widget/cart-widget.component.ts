@@ -10,7 +10,7 @@ import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 })
 export class CartWidgetComponent implements OnInit {
 
-  totalItemsCart: number = 0;
+  public totalItemsCart: number = 0;
 
   constructor(private _cartService: CartService) { }
 

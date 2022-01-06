@@ -13,9 +13,7 @@ import { OrdersService } from 'src/app/modules/public/myorders/services/orders.s
 })
 export class MyordersPageComponent implements OnInit {
 
-  userOrders:UserOrderModel[] = [];
-
-  displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
+  public userOrders:UserOrderModel[] = [];
 
   constructor(
     private _ordersService: OrdersService,

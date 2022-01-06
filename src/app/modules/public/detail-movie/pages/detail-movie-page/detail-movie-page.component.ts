@@ -13,7 +13,9 @@ import { ApiMovieService } from 'src/app/modules/public/detail-movie/services/ap
 })
 export class DetailMoviePageComponent implements OnInit {
 
-  movie!: MovieModel;
+  public movie!: MovieModel;
+  public hours: number = 0;
+  public mins: number = 0;
 
   constructor(
     private _apiMovieService: ApiMovieService, 
@@ -23,9 +25,15 @@ export class DetailMoviePageComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this._apiMovieService.getMovie(params.id).subscribe((res: MovieModel) => {
-        this.movie = res; 
+        this.movie = res;
+        this.MinToHour(this.movie.runtime);
       });
     })
+  }
+
+  MinToHour(number: number){
+    this.hours = Math.floor(number/60);
+    this.mins = number % 60;
   }
 
 }

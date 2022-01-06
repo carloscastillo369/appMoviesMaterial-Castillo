@@ -13,11 +13,11 @@ import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 })
 export class CartTableComponent implements OnInit {
 
-  cartMovies: CartMovieModel[] = [];
-
+  public cartMovies: CartMovieModel[] = [];
+  public displayedColumns: string[] = ['posicion', 'descripcion', 'accion', 'tipo', 'cantidad', 'precio', 'subtotal'];
+  
   @ViewChild(MatTable) table!: MatTable<any>;
-  displayedColumns: string[] = ['posicion','descripcion', 'accion','tipo','cantidad', 'precio','subTotal'];
-
+  
   constructor(private _cartService: CartService) { }
 
   ngOnInit(): void {
@@ -44,5 +44,15 @@ export class CartTableComponent implements OnInit {
     this._cartService.decreaseQtyMovie(id);
   }
 
+  MinToHours(number: number){
+    const hours = Math.floor(number/60);
+    const min = number % 60;
+    if(hours > 1){
+      return hours + ' ' + 'hrs' + ' ' + min + ' ' + 'min';
+    } else {
+      return hours + ' ' + 'hr' + ' ' + min + ' ' + 'min';
+    }
+
+  }
 
 }

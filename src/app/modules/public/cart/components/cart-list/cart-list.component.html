@@ -3,8 +3,8 @@
         <mat-icon>shopping_cart</mat-icon>
         <span>Mi Carrito de compras ( {{cartMovies.length}} película{{cartMovies.length > 1? 's' : null}} )</span>
     </div>  
-    <div fxLayout="row wrap" fxLayoutAlign="space-between" class="cart-container">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between">
         <app-cart-table fxFlex="100" fxFlex.gt-sm="69"></app-cart-table>
-        <app-cart-summary fxFlex="100" fxFlex.gt-sm="30" [totalPrice]="totalPrice"></app-cart-summary>  
+        <app-cart-summary fxFlex="100" fxFlex.gt-sm="30"></app-cart-summary>  
     </div>
 </div>

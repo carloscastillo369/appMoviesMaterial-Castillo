@@ -14,7 +14,7 @@ export class SidenavListComponent implements OnInit {
 
   @Output() sidenavClose = new EventEmitter();
 
-  user!:NewUserModel;
+  public user!:NewUserModel;
 
   constructor(private _authService: AuthService) { }
 

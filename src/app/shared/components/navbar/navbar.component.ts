@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
   @Output() sidenavToggle = new EventEmitter;
   
-  user!:NewUserModel;
+  public user!:NewUserModel;
   
   constructor(private _authService: AuthService) { }
 

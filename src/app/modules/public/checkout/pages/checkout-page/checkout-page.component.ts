@@ -19,11 +19,9 @@ import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar
 })
 export class CheckoutPageComponent implements OnInit {
 
-  user!:NewUserModel;
-  orders:OrderModel[] = [];
-  totalPrice: number = 0;
-
-  displayedColumns: string[] = ['posicion','descripcion','tipo','precio'];
+  public user!:NewUserModel;
+  public orders:OrderModel[] = [];
+  public totalPrice: number = 0;
 
   duration: number = 3;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -48,7 +46,8 @@ export class CheckoutPageComponent implements OnInit {
           id: i.id, 
           title: i.title, 
           type: i.type, 
-          price: i.price
+          price: i.price,
+          quantity: i.quantity
         }
         Orders.push(order)
       })

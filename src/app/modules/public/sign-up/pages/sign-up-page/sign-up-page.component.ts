@@ -16,14 +16,14 @@ import { NewUserModel } from 'src/app/core/models/newuser.model';
 })
 export class SignUpPageComponent implements OnInit {
 
+  public hide1: boolean = true;
+  public hide2: boolean = true;
+
   patternLetters = /^[a-zA-Z ñ]+$/;
   patternEmail = /^[0-9a-zA-Z._-]+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
   patternPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,15}$/;
 
   errorMatcher = new PasswordErrorMatcher();
-
-  hide1: boolean = true;
-  hide2: boolean = true;
 
   duration: number = 3;
   verticalPosition: MatSnackBarVerticalPosition = 'top';

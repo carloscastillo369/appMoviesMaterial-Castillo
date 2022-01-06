@@ -5,6 +5,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     CheckoutRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    FlexLayoutModule
   ]
 })
 export class CheckoutModule { }

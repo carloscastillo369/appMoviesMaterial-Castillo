@@ -1,7 +1,7 @@
 .myorders-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px 30px 20px 30px;
+    width: 100%;
+    background-color: #181818;
+    padding: 20px 5px 20px;
 }
 
 .myorders-text {

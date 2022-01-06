@@ -18,7 +18,7 @@ export class ButtonsFunctionComponent implements OnInit {
 
   @Input() movie!:MovieModel;
 
-  modal:string = "modal";
+  public modal:string = "modal";
 
   constructor(
     private _cartService: CartService,

@@ -12,7 +12,7 @@ import { ApiMoviesService } from 'src/app/modules/public/list-movies/services/ap
 })
 export class ListMoviesPageComponent implements OnInit {
 
-  movies: MovieModel[] = [];
+  public movies: MovieModel[] = [];
 
   constructor(private _apiMoviesService: ApiMoviesService) { }
 

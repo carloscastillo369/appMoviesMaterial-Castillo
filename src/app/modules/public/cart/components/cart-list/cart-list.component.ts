@@ -12,8 +12,7 @@ import { CartService } from 'src/app/modules/public/cart/services/cart.service';
 })
 export class CartListComponent implements OnInit {
 
-  cartMovies: CartMovieModel[] = [];
-  totalPrice:number = 0;
+  public cartMovies: CartMovieModel[] = [];
 
   constructor(private _cartService: CartService) { }
 
@@ -21,7 +20,6 @@ export class CartListComponent implements OnInit {
     this._cartService.getCartMoviesList()
     .subscribe((res: CartMovieModel[]) => {
       this.cartMovies = res;
-      this.totalPrice = this._cartService.getTotalPrice();
     })
   }
 
